@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Functional English Generator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    background:linear-gradient(135deg,#eef4ff,#f9fbff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    color:#1f2937;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:white;
+    border-radius:28px;
+    padding:50px;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.08);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.header h1{
+    font-size:2.5rem;
+    color:#173b6c;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#6b7280;
+    font-size:1.05rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-bottom:40px;
+}
+
+.card{
+    border-radius:22px;
+    padding:26px;
+    min-height:160px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+.label{
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:14px;
+    font-weight:700;
+    opacity:0.8;
+}
+
+.text{
+    font-size:1.35rem;
+    line-height:1.5;
+    font-weight:600;
+}
+
+.similarity{
+    background:#dbeafe;
+}
+
+.difference{
+    background:#fee2e2;
+}
+
+.opinion{
+    background:#dcfce7;
+}
+
+.speculation{
+    background:#fef3c7;
+}
+
+.navigation{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.nav-btn{
+    border:none;
+    background:#173b6c;
+    color:white;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    font-size:1.2rem;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.nav-btn:hover{
+    transform:scale(1.08);
+}
+
+.dots{
+    display:flex;
+    gap:10px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#cbd5e1;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.dot.active{
+    background:#173b6c;
+    transform:scale(1.25);
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+}
+
+.shuffle-btn{
+    border:none;
+    background:#111827;
+    color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.shuffle-btn:hover{
+    transform:translateY(-2px);
+}
+
+.challenge{
+    margin-top:28px;
+    text-align:center;
+    font-size:1rem;
+    color:#4b5563;
+    background:#f3f4f6;
+    padding:18px;
+    border-radius:18px;
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .text{
+        font-size:1.15rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Functional English Generator</h1>
+        <p>Practise comparison, contrast, opinion and speculation naturally.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card similarity">
+            <div class="label">Similarity</div>
+            <div class="text" id="similarityText"></div>
+        </div>
+
+        <div class="card difference">
+            <div class="label">Difference</div>
+            <div class="text" id="differenceText"></div>
+        </div>
+
+        <div class="card opinion">
+            <div class="label">Opinion</div>
+            <div class="text" id="opinionText"></div>
+        </div>
+
+        <div class="card speculation">
+            <div class="label">Speculation</div>
+            <div class="text" id="speculationText"></div>
+        </div>
+
+    </div>
+
+    <div class="navigation">
+
+        <button class="nav-btn" onclick="previousSlide()">←</button>
+
+        <div class="dots" id="dots"></div>
+
+        <button class="nav-btn" onclick="nextSlide()">→</button>
+
+    </div>
+
+    <div class="footer">
+        <button class="shuffle-btn" onclick="generateSlide()">
+            Shuffle Expressions
+        </button>
+    </div>
+
+    <div class="challenge">
+        Try to use ALL FOUR expressions naturally in one spoken answer.
+    </div>
+
+</div>
+
+<script>
+
+const expressions = {
+
+    similarities:[
+        "Both pictures show people enjoying themselves.",
+        "In both photos, the people seem relaxed.",
+        "One similarity is that they are spending time together.",
+        "Both situations appear to involve teamwork.",
+        "In each picture, people are communicating actively.",
+        "The two scenes seem fairly similar overall."
+    ],
+
+    differences:[
+        "However, the atmosphere in the second picture seems calmer.",
+        "Whereas the first photo looks busy, the second feels peaceful.",
+        "One major difference is the environment.",
+        "Unlike the people in the first image, the second group appears more focused.",
+        "The first situation seems more formal.",
+        "In contrast, the second picture looks more modern."
+    ],
+
+    opinions:[
+        "Personally, I think the first activity is more enjoyable.",
+        "In my view, the second option would be more effective.",
+        "I would probably prefer the first situation.",
+        "It seems to me that both experiences could be valuable.",
+        "Personally, I'd rather be in the second picture.",
+        "I suppose most people would choose the first option."
+    ],
+
+    speculation:[
+        "They might be celebrating something important.",
+        "Perhaps the people are preparing for an event.",
+        "It could be that they have known each other for years.",
+        "The group may have decided to work together.",
+        "They seem likely to be feeling excited.",
+        "Maybe they are trying something completely new."
+    ]
+
+};
+
+const slides = [];
+
+for(let i=0;i<8;i++){
+
+    slides.push({
+        similarity:randomExpression(expressions.similarities),
+        difference:randomExpression(expressions.differences),
+        opinion:randomExpression(expressions.opinions),
+        speculation:randomExpression(expressions.speculation)
+    });
+
+}
+
+let currentSlide = 0;
+
+function randomExpression(array){
+
+    return array[Math.floor(Math.random()*array.length)];
+
+}
+
+function renderSlide(){
+
+    const slide = slides[currentSlide];
+
+    document.getElementById("similarityText").textContent =
+        slide.similarity;
+
+    document.getElementById("differenceText").textContent =
+        slide.difference;
+
+    document.getElementById("opinionText").textContent =
+        slide.opinion;
+
+    document.getElementById("speculationText").textContent =
+        slide.speculation;
+
+    updateDots();
+
+}
+
+function nextSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
+
+    renderSlide();
+
+}
+
+function previousSlide(){
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = slides.length - 1;
+    }
+
+    renderSlide();
+
+}
+
+function generateSlide(){
+
+    slides[currentSlide] = {
+
+        similarity:randomExpression(expressions.similarities),
+
+        difference:randomExpression(expressions.differences),
+
+        opinion:randomExpression(expressions.opinions),
+
+        speculation:randomExpression(expressions.speculation)
+
+    };
+
+    renderSlide();
+
+}
+
+function createDots(){
+
+    const dotsContainer = document.getElementById("dots");
+
+    dotsContainer.innerHTML = "";
+
+    slides.forEach((_,index)=>{
+
+        const dot = document.createElement("div");
+
+        dot.classList.add("dot");
+
+        if(index === currentSlide){
+            dot.classList.add("active");
+        }
+
+        dot.addEventListener("click",()=>{
+
+            currentSlide = index;
+
+            renderSlide();
+
+        });
+
+        dotsContainer.appendChild(dot);
+
+    });
+
+}
+
+function updateDots(){
+
+    const dots = document.querySelectorAll(".dot");
+
+    dots.forEach(dot=>dot.classList.remove("active"));
+
+    dots[currentSlide].classList.add("active");
+
+}
+
+createDots();
+renderSlide();
+
+</script>
+
+</body>
+</html>
