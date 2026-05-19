@@ -1,0 +1,241 @@
+{
+  "prompts": [
+    {
+      "id": "urban_rural",
+      "text": "Why would people choose to live in these places?",
+      "imageLabel": "Urban vs Rural",
+      "emoji": "🏙️",
+      "theme": "lifestyle"
+    },
+    {
+      "id": "work_study",
+      "text": "How might the people in these photos be feeling?",
+      "imageLabel": "Work & Study",
+      "emoji": "💼",
+      "theme": "emotion"
+    },
+    {
+      "id": "technology",
+      "text": "How has technology changed the way we do these activities?",
+      "imageLabel": "Technology",
+      "emoji": "📱",
+      "theme": "change"
+    }
+  ],
+  "functions": [
+    {
+      "id": "speculation",
+      "label": "Speculation",
+      "color": "#c084fc",
+      "colorDim": "rgba(192,132,252,.12)",
+      "icon": "?",
+      "phrases": [
+        {
+          "stem": "It is likely that …",
+          "connector": "because … although",
+          "example": "It is likely that people prefer city life because of career opportunities, although the cost of living is high."
+        },
+        {
+          "stem": "There is every chance that …",
+          "connector": "since … even though",
+          "example": "There is every chance that the person enjoys working outdoors, since they look relaxed, even though the conditions seem demanding."
+        },
+        {
+          "stem": "In all likelihood, …",
+          "connector": "given that … however",
+          "example": "In all likelihood, this is a rural community, given that the landscape is open, however the buildings suggest some development."
+        },
+        {
+          "stem": "It could be that …",
+          "connector": "which would explain … despite",
+          "example": "It could be that they moved recently, which would explain the unfamiliar surroundings, despite seeming comfortable."
+        },
+        {
+          "stem": "I get the impression that …",
+          "connector": "because … even if",
+          "example": "I get the impression that this lifestyle is quite demanding because of the isolation, even if it looks peaceful."
+        },
+        {
+          "stem": "In all certainty, …",
+          "connector": "as … though",
+          "example": "In all certainty, the mood here is one of calm, as the surroundings appear undisturbed, though we cannot be sure."
+        },
+        {
+          "stem": "The main reason is probably that …",
+          "connector": "since … yet",
+          "example": "The main reason is probably that the cost of living is lower, since rural areas tend to be cheaper, yet services are less accessible."
+        },
+        {
+          "stem": "If I had to guess, I'd say …",
+          "connector": "judging by … although",
+          "example": "If I had to guess, I'd say this community is quite close-knit, judging by their proximity, although it's difficult to say for certain."
+        }
+      ]
+    },
+    {
+      "id": "similarities",
+      "label": "Similarities",
+      "color": "#38bdf8",
+      "colorDim": "rgba(56,189,248,.12)",
+      "icon": "≈",
+      "phrases": [
+        {
+          "stem": "Both photos show …",
+          "connector": "and similarly … which suggests",
+          "example": "Both photos show people in outdoor environments, and similarly both convey a sense of independence, which suggests a preference for open spaces."
+        },
+        {
+          "stem": "What these pictures share is …",
+          "connector": "in the sense that … even though",
+          "example": "What these pictures share is a theme of community, in the sense that people are working together, even though the settings are different."
+        },
+        {
+          "stem": "In both pictures, … can be seen …",
+          "connector": "which points to … despite",
+          "example": "In both pictures, a sense of purpose can be seen, which points to motivated individuals, despite the contrasting environments."
+        },
+        {
+          "stem": "There is a clear parallel between …",
+          "connector": "in that … although",
+          "example": "There is a clear parallel between the two images in that both depict human resilience, although the challenges faced are very different."
+        },
+        {
+          "stem": "Just as … so too …",
+          "connector": "which means … even if",
+          "example": "Just as Photo A conveys determination, so too does Photo B, which means both subjects share a similar mindset, even if their circumstances differ."
+        },
+        {
+          "stem": "There seems to be a similar feeling of …",
+          "connector": "namely … though",
+          "example": "There seems to be a similar feeling of belonging in both photos, namely a connection to place, though it is expressed in different ways."
+        }
+      ]
+    },
+    {
+      "id": "differences",
+      "label": "Differences",
+      "color": "#fb923c",
+      "colorDim": "rgba(251,146,60,.12)",
+      "icon": "≠",
+      "phrases": [
+        {
+          "stem": "Whereas Photo A …, Photo B …",
+          "connector": "which suggests … even so",
+          "example": "Whereas Photo A shows a crowded urban setting, Photo B depicts isolation, which suggests very different lifestyles, even so both seem purposeful."
+        },
+        {
+          "stem": "Unlike Photo A, Photo B …",
+          "connector": "in that … although",
+          "example": "Unlike Photo A, Photo B focuses on solitude, in that there is no social interaction visible, although the person does not appear lonely."
+        },
+        {
+          "stem": "One key difference is that …",
+          "connector": "whereas … which means",
+          "example": "One key difference is that the pace of life appears much slower in Photo B, whereas Photo A feels frantic, which means very different demands on the individual."
+        },
+        {
+          "stem": "The overall tone shifts from … to …",
+          "connector": "suggesting … though",
+          "example": "The overall tone shifts from tension in Photo A to calm in Photo B, suggesting very different emotional experiences, though both are relatable."
+        },
+        {
+          "stem": "By contrast, …",
+          "connector": "and this … even though",
+          "example": "By contrast, the second image has a warmer and more intimate quality, and this creates a sense of comfort, even though the setting is modest."
+        }
+      ]
+    },
+    {
+      "id": "advantages",
+      "label": "Advantages & Disadvantages",
+      "color": "#4ade80",
+      "colorDim": "rgba(74,222,128,.12)",
+      "icon": "+/−",
+      "phrases": [
+        {
+          "stem": "One of the main advantages is …",
+          "connector": "in the sense that … however",
+          "example": "One of the main advantages is the quality of life, in the sense that there is more space and less noise, however accessing services can be more difficult."
+        },
+        {
+          "stem": "On the downside, …",
+          "connector": "which means … even though",
+          "example": "On the downside, rural areas can feel isolating, which means social connections are harder to maintain, even though community bonds are often stronger."
+        },
+        {
+          "stem": "On balance, …",
+          "connector": "because … although",
+          "example": "On balance, city living seems to offer more opportunities, because of the range of services and work available, although the lifestyle can be stressful."
+        },
+        {
+          "stem": "A potential drawback is that …",
+          "connector": "since … yet",
+          "example": "A potential drawback is that housing costs are extremely high, since demand far outstrips supply, yet people continue to move to cities."
+        },
+        {
+          "stem": "There is a lot to be said for …",
+          "connector": "given that … though",
+          "example": "There is a lot to be said for living close to nature, given that it reduces stress and improves wellbeing, though it requires a significant lifestyle adjustment."
+        }
+      ]
+    },
+    {
+      "id": "cause_effect",
+      "label": "Cause & Effect",
+      "color": "#fcd34d",
+      "colorDim": "rgba(252,211,77,.12)",
+      "icon": "→",
+      "phrases": [
+        {
+          "stem": "This leads to …",
+          "connector": "which in turn … despite",
+          "example": "This leads to a sense of disconnection from nature, which in turn affects people's wellbeing, despite the many conveniences of city life."
+        },
+        {
+          "stem": "As a result of …",
+          "connector": "people tend to … even though",
+          "example": "As a result of urbanisation, people tend to feel more anonymous and isolated, even though they are surrounded by millions of others."
+        },
+        {
+          "stem": "This, in turn, …",
+          "connector": "which means … although",
+          "example": "This, in turn, places pressure on rural communities, which means traditional ways of life are disappearing, although some are being revived."
+        },
+        {
+          "stem": "The knock-on effect of … is that …",
+          "connector": "because … yet",
+          "example": "The knock-on effect of high urban costs is that young people are priced out, because wages have not kept pace with rents, yet cities remain attractive."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "label": "Problems & Solutions",
+      "color": "#f472b6",
+      "colorDim": "rgba(244,114,182,.12)",
+      "icon": "!→✓",
+      "phrases": [
+        {
+          "stem": "One of the key issues here is …",
+          "connector": "in that … which suggests",
+          "example": "One of the key issues here is the lack of affordable housing, in that prices have risen dramatically, which suggests urgent policy intervention is needed."
+        },
+        {
+          "stem": "One possible solution would be to …",
+          "connector": "because … even if",
+          "example": "One possible solution would be to invest in rural infrastructure, because improved connectivity could attract younger residents, even if progress is slow."
+        },
+        {
+          "stem": "This could be addressed by …",
+          "connector": "which would … although",
+          "example": "This could be addressed by creating more remote working opportunities, which would allow people to leave cities, although not everyone has that flexibility."
+        },
+        {
+          "stem": "While this might work in the short term, …",
+          "connector": "a deeper … is needed because",
+          "example": "While this might work in the short term, a deeper structural change is needed because the root causes of inequality have not been tackled."
+        }
+      ]
+    }
+  ]
+}
