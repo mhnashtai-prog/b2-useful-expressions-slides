@@ -20,6 +20,69 @@
       "imageLabel": "Technology",
       "emoji": "📱",
       "theme": "change"
+    },
+    {
+      "id": "environment",
+      "text": "What environmental challenges do these photos suggest?",
+      "imageLabel": "Environment",
+      "emoji": "🌍",
+      "theme": "environment"
+    },
+    {
+      "id": "education",
+      "text": "What do these images tell us about different approaches to learning?",
+      "imageLabel": "Education",
+      "emoji": "📚",
+      "theme": "education"
+    },
+    {
+      "id": "travel",
+      "text": "What kind of traveller would enjoy each of these destinations?",
+      "imageLabel": "Travel",
+      "emoji": "✈️",
+      "theme": "travel"
+    },
+    {
+      "id": "sport",
+      "text": "What motivates people to take part in these activities?",
+      "imageLabel": "Sport & Fitness",
+      "emoji": "🏅",
+      "theme": "sport"
+    },
+    {
+      "id": "social_media",
+      "text": "How might social media be influencing the situations shown?",
+      "imageLabel": "Social Media",
+      "emoji": "📲",
+      "theme": "media"
+    },
+    {
+      "id": "food_culture",
+      "text": "What do these images reveal about different food cultures?",
+      "imageLabel": "Food & Culture",
+      "emoji": "🍽️",
+      "theme": "culture"
+    },
+    {
+      "id": "generations",
+      "text": "How do the needs of different generations differ in these situations?",
+      "imageLabel": "Generations",
+      "emoji": "👨‍👩‍👧‍👦",
+      "theme": "society"
+    },
+    {
+      "id": "health",
+      "text": "What do these photos suggest about people's attitudes to health and wellbeing?",
+      "imageLabel": "Health & Wellbeing",
+      "emoji": "🧘",
+      "theme": "health"
+    },
+    {
+      "id": "arts",
+      "text": "How do these images reflect the role of art and creativity in society?",
+      "imageLabel": "Arts & Creativity",
+      "emoji": "🎨",
+      "theme": "arts"
     }
   ],
   "functions": [
@@ -33,42 +96,98 @@
         {
           "stem": "It is likely that …",
           "connector": "because … although",
-          "example": "It is likely that people prefer city life because of career opportunities, although the cost of living is high."
+          "example": "It is likely that people prefer city life because of career opportunities, although the cost of living is high.",
+          "expanded": {
+            "point": "City environments offer a concentration of professional opportunities that simply do not exist in rural areas.",
+            "reason": "Large corporations, start-ups, cultural institutions and public services are all clustered in urban centres, meaning job seekers have far greater choice.",
+            "example": "A young graduate moving to Lisbon or London, for instance, can attend networking events, switch careers more easily, and access industries that barely exist outside major cities.",
+            "contrast": "However, this comes at a significant cost — both financially and in terms of quality of life. Rent consumes a disproportionate share of income, and the pace of urban life can lead to stress and burnout.",
+            "conclusion": "So while city life is likely the more pragmatic choice for career-focused individuals, it demands real sacrifices in terms of space, affordability and mental wellbeing."
+          }
         },
         {
           "stem": "There is every chance that …",
           "connector": "since … even though",
-          "example": "There is every chance that the person enjoys working outdoors, since they look relaxed, even though the conditions seem demanding."
+          "example": "There is every chance that the person enjoys working outdoors, since they look relaxed, even though the conditions seem demanding.",
+          "expanded": {
+            "point": "Some people derive genuine satisfaction from physical, outdoor work in ways that desk-based roles cannot replicate.",
+            "reason": "Working in natural environments has been shown to reduce cortisol levels and boost mood, since the body responds positively to sunlight, fresh air and physical movement.",
+            "example": "A farmer or conservation worker, for instance, often reports a deep sense of purpose and connection to their surroundings, even when the hours are long and the weather is difficult.",
+            "contrast": "Even though the work can be physically exhausting and financially unpredictable, many people in these roles say they would not exchange it for an office job.",
+            "conclusion": "This suggests that job satisfaction is not simply a matter of comfort or salary — for many, meaning and environment matter just as much."
+          }
         },
         {
           "stem": "In all likelihood, …",
           "connector": "given that … however",
-          "example": "In all likelihood, this is a rural community, given that the landscape is open, however the buildings suggest some development."
+          "example": "In all likelihood, this is a rural community, given that the landscape is open, however the buildings suggest some development.",
+          "expanded": {
+            "point": "The visual cues in this image point strongly towards a semi-rural setting that is beginning to experience development pressure.",
+            "reason": "Given that the surrounding land is largely undeveloped and the population density appears low, the infrastructure is typical of a village or small town rather than a city.",
+            "example": "Communities like this are increasingly common across southern Europe and parts of the UK, where urban sprawl is slowly encroaching on previously agricultural land.",
+            "contrast": "However, the presence of newer construction and improved roads suggests that this place is not entirely isolated — it may be within commuting distance of a larger urban centre.",
+            "conclusion": "In all likelihood, the community is navigating a transition between its rural identity and the pressures of modernisation and population growth."
+          }
         },
         {
           "stem": "It could be that …",
           "connector": "which would explain … despite",
-          "example": "It could be that they moved recently, which would explain the unfamiliar surroundings, despite seeming comfortable."
+          "example": "It could be that they moved recently, which would explain the unfamiliar surroundings, despite seeming comfortable.",
+          "expanded": {
+            "point": "The body language and expressions visible here suggest someone who is still adapting to a new environment.",
+            "reason": "Recent relocation — whether for work, study or family reasons — typically brings a period of adjustment during which even confident people can appear slightly uncertain.",
+            "example": "It could be that this person has relocated from a different country or city, which would explain why they seem slightly out of place in what appears to be an unfamiliar setting.",
+            "contrast": "Despite this, their overall posture suggests resilience and a willingness to engage with the new environment rather than withdraw from it.",
+            "conclusion": "This combination of disorientation and determination is something many migrants and internal movers will recognise from their own experience."
+          }
         },
         {
           "stem": "I get the impression that …",
           "connector": "because … even if",
-          "example": "I get the impression that this lifestyle is quite demanding because of the isolation, even if it looks peaceful."
-        },
-        {
-          "stem": "In all certainty, …",
-          "connector": "as … though",
-          "example": "In all certainty, the mood here is one of calm, as the surroundings appear undisturbed, though we cannot be sure."
+          "example": "I get the impression that this lifestyle is quite demanding because of the isolation, even if it looks peaceful.",
+          "expanded": {
+            "point": "Appearances can be deceptive — what looks serene in a photograph may conceal significant psychological challenges.",
+            "reason": "I get the impression that living in this kind of isolated environment places considerable demands on a person's mental resilience, because the absence of social contact and stimulation can be deeply draining over time.",
+            "example": "Research on remote workers and people living in isolated rural areas consistently highlights loneliness as one of the most significant challenges, regardless of how beautiful the surroundings are.",
+            "contrast": "Even if the lifestyle looks peaceful and appealing to an outsider, the reality of limited social interaction and restricted access to services can be genuinely difficult to sustain.",
+            "conclusion": "This is a useful reminder that we should be cautious about romanticising ways of life that we only observe briefly or from a distance."
+          }
         },
         {
           "stem": "The main reason is probably that …",
           "connector": "since … yet",
-          "example": "The main reason is probably that the cost of living is lower, since rural areas tend to be cheaper, yet services are less accessible."
+          "example": "The main reason is probably that the cost of living is lower, since rural areas tend to be cheaper, yet services are less accessible.",
+          "expanded": {
+            "point": "Financial considerations are often the primary driver behind decisions about where to live.",
+            "reason": "The main reason people relocate to rural or smaller urban areas is probably the significant reduction in living costs, since housing, food and leisure tend to be markedly cheaper outside major cities.",
+            "example": "In Portugal, for instance, a family moving from Lisbon to the interior can typically afford a far larger home for the same budget, and day-to-day expenses are considerably lower.",
+            "contrast": "Yet this financial advantage comes with trade-offs — healthcare facilities, schools and transport links are often far less developed, which can disproportionately affect families, elderly residents and people with health needs.",
+            "conclusion": "The decision ultimately depends on individual priorities: for those who can work remotely and value space over convenience, the trade-off is increasingly attractive."
+          }
         },
         {
           "stem": "If I had to guess, I'd say …",
           "connector": "judging by … although",
-          "example": "If I had to guess, I'd say this community is quite close-knit, judging by their proximity, although it's difficult to say for certain."
+          "example": "If I had to guess, I'd say this community is quite close-knit, judging by their proximity, although it's difficult to say for certain.",
+          "expanded": {
+            "point": "Small communities often develop strong social bonds that are less common in larger, more anonymous urban environments.",
+            "reason": "If I had to guess, I'd say the people shown here know each other well, judging by their relaxed body language and the ease with which they share the space.",
+            "example": "In villages and small towns, repeated daily contact — at local shops, schools or community events — naturally builds familiarity and trust between residents over time.",
+            "contrast": "Although it would be wrong to generalise, since not all small communities are welcoming, and some can feel exclusive or resistant to newcomers.",
+            "conclusion": "The sense of belonging that close-knit communities can offer is one of the most frequently cited reasons people choose rural or small-town life over the anonymity of the city."
+          }
+        },
+        {
+          "stem": "In all certainty, …",
+          "connector": "as … though",
+          "example": "In all certainty, the mood here is one of calm, as the surroundings appear undisturbed, though we cannot be sure.",
+          "expanded": {
+            "point": "The atmosphere conveyed in this image is unmistakably one of stillness and quiet contemplation.",
+            "reason": "In all certainty, the mood here is shaped by the environment itself, as natural surroundings with minimal noise and human activity tend to induce feelings of calm and reflection.",
+            "example": "Studies in environmental psychology have consistently shown that exposure to natural landscapes — even briefly — lowers heart rate and promotes a sense of mental clarity.",
+            "contrast": "Though we cannot be entirely certain what the individual is experiencing internally, since emotional states are not always visible, and people may feel anxiety even in peaceful settings.",
+            "conclusion": "What the image does suggest, however, is the powerful role that physical environment plays in shaping mood and psychological wellbeing."
+          }
         }
       ]
     },
@@ -82,32 +201,74 @@
         {
           "stem": "Both photos show …",
           "connector": "and similarly … which suggests",
-          "example": "Both photos show people in outdoor environments, and similarly both convey a sense of independence, which suggests a preference for open spaces."
+          "example": "Both photos show people in outdoor environments, and similarly both convey a sense of independence, which suggests a preference for open spaces.",
+          "expanded": {
+            "point": "Despite their surface differences, both images share a common thread: a celebration of independence and self-sufficiency.",
+            "reason": "Both photos show individuals operating outside of conventional indoor or institutional settings, and similarly both seem to depict people who have made active choices about how they spend their time.",
+            "example": "Whether it is a solo hiker navigating a mountain trail or a street performer entertaining a public crowd, both scenarios involve a degree of personal agency that is visually striking.",
+            "contrast": "This is in contrast to images of people in workplaces or formal environments, where individual choice is often more constrained.",
+            "conclusion": "The shared visual language of freedom and open space suggests that both subjects value autonomy — a quality that resonates strongly with contemporary ideas about personal fulfilment."
+          }
         },
         {
           "stem": "What these pictures share is …",
           "connector": "in the sense that … even though",
-          "example": "What these pictures share is a theme of community, in the sense that people are working together, even though the settings are different."
+          "example": "What these pictures share is a theme of community, in the sense that people are working together, even though the settings are different.",
+          "expanded": {
+            "point": "Community and cooperation emerge as the central theme connecting these two otherwise distinct images.",
+            "reason": "What these pictures share is a clear emphasis on collective effort, in the sense that neither scene is about individual achievement but about people working towards a shared goal.",
+            "example": "One image might show a team building a structure together, while the other depicts a group preparing a communal meal — yet in both cases, the dynamic is fundamentally collaborative.",
+            "contrast": "Even though the settings are entirely different in terms of context and culture, the underlying human dynamic is strikingly similar.",
+            "conclusion": "This reminds us that cooperation is one of the most universal aspects of human behaviour, manifesting across vastly different social and cultural contexts."
+          }
         },
         {
           "stem": "In both pictures, … can be seen …",
           "connector": "which points to … despite",
-          "example": "In both pictures, a sense of purpose can be seen, which points to motivated individuals, despite the contrasting environments."
+          "example": "In both pictures, a sense of purpose can be seen, which points to motivated individuals, despite the contrasting environments.",
+          "expanded": {
+            "point": "A strong sense of intention and direction is visible in both images, regardless of the context in which they are set.",
+            "reason": "In both pictures, focused and deliberate behaviour can be seen, which points to individuals who are engaged and goal-oriented rather than passive or disengaged.",
+            "example": "Whether we are looking at someone studying intently at a desk or a craftsperson carefully shaping a piece of wood, the level of concentration is comparable.",
+            "contrast": "Despite the contrasting environments — one perhaps urban and modern, the other traditional or rural — the human quality of purposeful engagement remains constant.",
+            "conclusion": "This suggests that motivation and a sense of purpose are not products of any particular environment, but intrinsic qualities that people bring to their activities."
+          }
         },
         {
           "stem": "There is a clear parallel between …",
           "connector": "in that … although",
-          "example": "There is a clear parallel between the two images in that both depict human resilience, although the challenges faced are very different."
+          "example": "There is a clear parallel between the two images in that both depict human resilience, although the challenges faced are very different.",
+          "expanded": {
+            "point": "Resilience — the capacity to persist in the face of difficulty — is the quality that most clearly links these two photographs.",
+            "reason": "There is a clear parallel between the two images in that both capture people in the act of persisting through challenging circumstances, whether those challenges are physical, emotional or social.",
+            "example": "A person navigating a difficult natural environment and another managing a complex social or professional situation may face entirely different obstacles, yet both demonstrate the same fundamental quality.",
+            "contrast": "Although the nature of the challenges is very different, the human response — determination, adaptability and continued effort — is remarkably similar in both cases.",
+            "conclusion": "The parallel invites us to reflect on resilience not as a rare or exceptional quality, but as something ordinary people demonstrate in everyday contexts across the world."
+          }
         },
         {
           "stem": "Just as … so too …",
           "connector": "which means … even if",
-          "example": "Just as Photo A conveys determination, so too does Photo B, which means both subjects share a similar mindset, even if their circumstances differ."
+          "example": "Just as Photo A conveys determination, so too does Photo B, which means both subjects share a similar mindset, even if their circumstances differ.",
+          "expanded": {
+            "point": "The emotional register of both photographs is essentially the same, despite the very different situations they depict.",
+            "reason": "Just as the first image communicates a sense of quiet determination through posture and expression, so too does the second, which means the subjects appear to share a fundamentally similar attitude towards what they are doing.",
+            "example": "This kind of visual equivalence is often used in documentary and photojournalism to draw connections between people from radically different backgrounds — highlighting what is universal about human experience.",
+            "contrast": "Even if the circumstances — economic, cultural or geographical — could not be more different, the emotional truth captured in both images feels entirely consistent.",
+            "conclusion": "It is a powerful reminder that the internal experiences of determination, focus and commitment transcend the external conditions in which people find themselves."
+          }
         },
         {
           "stem": "There seems to be a similar feeling of …",
           "connector": "namely … though",
-          "example": "There seems to be a similar feeling of belonging in both photos, namely a connection to place, though it is expressed in different ways."
+          "example": "There seems to be a similar feeling of belonging in both photos, namely a connection to place, though it is expressed in different ways.",
+          "expanded": {
+            "point": "A sense of rootedness and attachment to a specific place or community runs through both of these images.",
+            "reason": "There seems to be a similar feeling of belonging in both photos, namely the idea that the people depicted are not passing through but are genuinely connected to the space and people around them.",
+            "example": "This might be expressed through familiarity — the ease with which people move through a space — or through more visible signs of community such as shared rituals, clothing or activities.",
+            "contrast": "Though the ways in which this belonging is expressed are quite different, the underlying emotional quality — of being at home somewhere — is recognisably the same.",
+            "conclusion": "In an era of increasing mobility and globalisation, images that convey a strong sense of place and community often resonate deeply precisely because that feeling is becoming rarer."
+          }
         }
       ]
     },
@@ -121,27 +282,62 @@
         {
           "stem": "Whereas Photo A …, Photo B …",
           "connector": "which suggests … even so",
-          "example": "Whereas Photo A shows a crowded urban setting, Photo B depicts isolation, which suggests very different lifestyles, even so both seem purposeful."
+          "example": "Whereas Photo A shows a crowded urban setting, Photo B depicts isolation, which suggests very different lifestyles, even so both seem purposeful.",
+          "expanded": {
+            "point": "The contrast between density and solitude is one of the most striking differences these two images present.",
+            "reason": "Whereas Photo A immerses us in the noise and energy of a crowded urban environment, Photo B strips all of that away, depicting a single individual in a vast, quiet space.",
+            "example": "This kind of visual contrast is frequently used in social commentary to highlight the spectrum of human experience — from the overstimulation of city life to the profound quiet of remote living.",
+            "contrast": "Even so, both images seem to suggest people living with intention — neither appears to be a victim of their environment but rather someone who has chosen, or at least adapted to, their circumstances.",
+            "conclusion": "The comparison ultimately raises a question about what the ideal balance might be between connection and solitude, community and independence."
+          }
         },
         {
           "stem": "Unlike Photo A, Photo B …",
           "connector": "in that … although",
-          "example": "Unlike Photo A, Photo B focuses on solitude, in that there is no social interaction visible, although the person does not appear lonely."
+          "example": "Unlike Photo A, Photo B focuses on solitude, in that there is no social interaction visible, although the person does not appear lonely.",
+          "expanded": {
+            "point": "Solitude and loneliness are not the same thing, and Photo B makes this distinction visually clear.",
+            "reason": "Unlike Photo A, which places its subject within a social context, Photo B focuses entirely on an individual alone, in that there is no visible interaction with other people.",
+            "example": "Yet the body language, expression and overall composition suggest someone who is content, absorbed and at ease — qualities we associate with chosen solitude rather than imposed isolation.",
+            "contrast": "Although it would be easy to interpret the absence of other people as loneliness, the image seems to resist that reading — solitude here appears to be a source of strength rather than suffering.",
+            "conclusion": "This distinction matters: as societies grapple with loneliness as a public health issue, understanding the difference between being alone and feeling lonely has never been more important."
+          }
         },
         {
           "stem": "One key difference is that …",
           "connector": "whereas … which means",
-          "example": "One key difference is that the pace of life appears much slower in Photo B, whereas Photo A feels frantic, which means very different demands on the individual."
+          "example": "One key difference is that the pace of life appears much slower in Photo B, whereas Photo A feels frantic, which means very different demands on the individual.",
+          "expanded": {
+            "point": "The rhythm of daily life depicted in these two images could not be more different.",
+            "reason": "One key difference is the pace at which everything appears to move: Photo A is characterised by urgency, motion and the compressed timeframes of urban life, whereas Photo B communicates a much slower, more deliberate rhythm.",
+            "example": "Research consistently shows that chronic exposure to fast-paced environments raises stress hormones and contributes to burnout, while slower-paced settings tend to promote recovery and reflection.",
+            "contrast": "Which means the individuals in these two images are likely experiencing very different physiological and psychological states, even if their outward circumstances appear equally valid.",
+            "conclusion": "This raises an important question about the pace of modern life and whether the relentless speed of urban environments is sustainable in the long term."
+          }
         },
         {
           "stem": "The overall tone shifts from … to …",
           "connector": "suggesting … though",
-          "example": "The overall tone shifts from tension in Photo A to calm in Photo B, suggesting very different emotional experiences, though both are relatable."
+          "example": "The overall tone shifts from tension in Photo A to calm in Photo B, suggesting very different emotional experiences, though both are relatable.",
+          "expanded": {
+            "point": "These two images occupy opposite ends of the emotional spectrum, and the transition between them is immediately felt.",
+            "reason": "The overall tone shifts dramatically from anxiety and tension in Photo A — conveyed through tight framing, body language and environmental cues — to a much more open and settled calm in Photo B.",
+            "example": "A photographer or filmmaker would describe this as a shift in emotional register: the first image creates a feeling of pressure or urgency, while the second invites the viewer to slow down and breathe.",
+            "contrast": "Though both emotional experiences are entirely relatable and form part of the normal range of human feeling, the contrast between them is striking.",
+            "conclusion": "The juxtaposition invites us to consider how profoundly our environment shapes our emotional state — and how little control we sometimes have over that process."
+          }
         },
         {
           "stem": "By contrast, …",
           "connector": "and this … even though",
-          "example": "By contrast, the second image has a warmer and more intimate quality, and this creates a sense of comfort, even though the setting is modest."
+          "example": "By contrast, the second image has a warmer and more intimate quality, and this creates a sense of comfort, even though the setting is modest.",
+          "expanded": {
+            "point": "Warmth and intimacy do not require wealth or grandeur — and the second image makes this point beautifully.",
+            "reason": "By contrast with the first image's coldness or formality, the second has a much more personal and human quality, and this immediately creates a sense of safety and comfort for the viewer.",
+            "example": "Small details — soft lighting, close physical proximity between people, signs of everyday life — combine to produce an emotional warmth that more polished or expensive environments sometimes lack.",
+            "contrast": "Even though the setting is modest and the surroundings are far from glamorous, the feeling conveyed is one of genuine contentment and security.",
+            "conclusion": "This is a powerful reminder that quality of life is far more dependent on human connection and emotional safety than on material wealth or aesthetic perfection."
+          }
         }
       ]
     },
@@ -155,27 +351,62 @@
         {
           "stem": "One of the main advantages is …",
           "connector": "in the sense that … however",
-          "example": "One of the main advantages is the quality of life, in the sense that there is more space and less noise, however accessing services can be more difficult."
+          "example": "One of the main advantages is the quality of life, in the sense that there is more space and less noise, however accessing services can be more difficult.",
+          "expanded": {
+            "point": "Space and quiet are genuinely undervalued aspects of quality of life that many urban dwellers only appreciate once they have experienced them.",
+            "reason": "One of the main advantages of the situation shown is the quality of life it appears to offer, in the sense that reduced density, lower noise levels and access to outdoor space all contribute to measurable improvements in physical and mental health.",
+            "example": "Studies comparing urban and rural residents consistently show lower rates of anxiety and depression among those with regular access to natural environments and quieter living conditions.",
+            "contrast": "However, this advantage is not without its costs — accessing healthcare, education, transport and specialist services can be significantly more difficult in less populated areas.",
+            "conclusion": "The trade-off is real, and the right balance depends heavily on individual needs, life stage and personal priorities."
+          }
         },
         {
           "stem": "On the downside, …",
           "connector": "which means … even though",
-          "example": "On the downside, rural areas can feel isolating, which means social connections are harder to maintain, even though community bonds are often stronger."
+          "example": "On the downside, rural areas can feel isolating, which means social connections are harder to maintain, even though community bonds are often stronger.",
+          "expanded": {
+            "point": "Isolation is one of the most consistently reported challenges of rural or remote living, and it deserves serious consideration.",
+            "reason": "On the downside, physical distance from friends, family and social infrastructure means that maintaining the breadth of social connections many people rely on becomes genuinely difficult.",
+            "example": "Young people in particular often report feeling cut off from cultural life, career opportunities and peer groups when they live in isolated areas — a factor that drives significant rural-to-urban migration globally.",
+            "contrast": "Even though community bonds within small settlements are often described as stronger and more meaningful than those found in cities, this is not a universal experience and depends heavily on personality and circumstance.",
+            "conclusion": "The challenge for policymakers is to find ways of improving connectivity — both digital and physical — without destroying the qualities that make rural communities distinctive."
+          }
         },
         {
           "stem": "On balance, …",
           "connector": "because … although",
-          "example": "On balance, city living seems to offer more opportunities, because of the range of services and work available, although the lifestyle can be stressful."
+          "example": "On balance, city living seems to offer more opportunities, because of the range of services and work available, although the lifestyle can be stressful.",
+          "expanded": {
+            "point": "When all factors are considered, urban environments still offer a structural advantage to most people in terms of opportunity and access.",
+            "reason": "On balance, the concentration of employment, healthcare, education, culture and social infrastructure in cities means that, for most people at most life stages, urban living offers the widest range of options.",
+            "example": "A young professional, a recent immigrant or someone navigating a health challenge will typically find more support, more choice and more opportunity in a well-resourced city than in a rural area.",
+            "contrast": "Although the lifestyle associated with city living — the pace, the cost, the noise and the crowds — can be genuinely stressful and unsustainable for many people in the long term.",
+            "conclusion": "The growing popularity of hybrid living — maintaining urban access while spending more time in quieter environments — reflects a collective search for a better balance between opportunity and wellbeing."
+          }
         },
         {
           "stem": "A potential drawback is that …",
           "connector": "since … yet",
-          "example": "A potential drawback is that housing costs are extremely high, since demand far outstrips supply, yet people continue to move to cities."
+          "example": "A potential drawback is that housing costs are extremely high, since demand far outstrips supply, yet people continue to move to cities.",
+          "expanded": {
+            "point": "Affordability has become one of the defining crises of urban life in the twenty-first century.",
+            "reason": "A potential drawback — and in many cases a very serious one — is that housing costs in desirable urban areas have reached levels that are simply unaffordable for large sections of the population, since decades of underbuilding have created a chronic gap between supply and demand.",
+            "example": "In cities like London, Lisbon, Amsterdam and San Francisco, the proportion of income spent on rent has increased dramatically over the past twenty years, pushing lower and middle-income residents further from the centre.",
+            "contrast": "Yet the flow of people into these cities has not slowed — if anything, it has accelerated — because the economic and social pull factors remain powerful despite the cost.",
+            "conclusion": "This paradox — cities that are both unaffordable and irresistible — is one of the most complex social and political challenges facing governments across the developed world."
+          }
         },
         {
           "stem": "There is a lot to be said for …",
           "connector": "given that … though",
-          "example": "There is a lot to be said for living close to nature, given that it reduces stress and improves wellbeing, though it requires a significant lifestyle adjustment."
+          "example": "There is a lot to be said for living close to nature, given that it reduces stress and improves wellbeing, though it requires a significant lifestyle adjustment.",
+          "expanded": {
+            "point": "The case for greater proximity to natural environments is supported by a growing body of scientific evidence.",
+            "reason": "There is a lot to be said for lives lived in close contact with natural landscapes, given that research in environmental psychology consistently links nature exposure to reduced stress, improved mood and better cognitive function.",
+            "example": "Even relatively modest interventions — a view of trees from a window, a weekly walk in a park — have been shown to produce measurable benefits for mental health and productivity.",
+            "contrast": "Though making this a genuine part of one's life, rather than an occasional retreat, requires significant adjustments to career expectations, social habits and practical logistics.",
+            "conclusion": "As remote working becomes more widespread, the opportunity for more people to restructure their lives around proximity to nature is real — though realising it requires careful planning and genuine trade-offs."
+          }
         }
       ]
     },
@@ -189,22 +420,50 @@
         {
           "stem": "This leads to …",
           "connector": "which in turn … despite",
-          "example": "This leads to a sense of disconnection from nature, which in turn affects people's wellbeing, despite the many conveniences of city life."
+          "example": "This leads to a sense of disconnection from nature, which in turn affects people's wellbeing, despite the many conveniences of city life.",
+          "expanded": {
+            "point": "Urbanisation, for all its benefits, has created a generation of people who are deeply disconnected from the natural world.",
+            "reason": "Dense city living leads to a profound reduction in contact with natural environments, which in turn has been linked to increased rates of anxiety, reduced attention spans and a diminished sense of perspective.",
+            "example": "Children growing up in cities, for instance, are significantly less likely to regularly encounter forests, rivers or open countryside than previous generations — a shift with potential long-term consequences for both wellbeing and environmental awareness.",
+            "contrast": "Despite the many genuine conveniences and opportunities that city life provides, this disconnection from nature is increasingly recognised as a serious public health concern.",
+            "conclusion": "Urban planners and public health researchers are now actively working to reintegrate natural elements into city design — through parks, green rooftops and urban forests — in recognition of this growing problem."
+          }
         },
         {
           "stem": "As a result of …",
           "connector": "people tend to … even though",
-          "example": "As a result of urbanisation, people tend to feel more anonymous and isolated, even though they are surrounded by millions of others."
+          "example": "As a result of urbanisation, people tend to feel more anonymous and isolated, even though they are surrounded by millions of others.",
+          "expanded": {
+            "point": "The paradox of urban loneliness — feeling profoundly alone in the most densely populated places on earth — is one of the defining social phenomena of our time.",
+            "reason": "As a result of the scale and anonymity of modern cities, people tend to experience social disconnection in ways that are qualitatively different from rural isolation.",
+            "example": "In a large city, it is entirely possible to spend weeks without a meaningful conversation with a neighbour, to eat alone, travel alone and work in isolation — surrounded at all times by strangers who share physical space but nothing else.",
+            "contrast": "Even though the statistical density of social contact is higher in cities than almost anywhere else, the depth and quality of those connections is often much lower.",
+            "conclusion": "This has prompted growing interest in community design, social prescribing and urban planning interventions specifically aimed at reducing the structural causes of urban loneliness."
+          }
         },
         {
           "stem": "This, in turn, …",
           "connector": "which means … although",
-          "example": "This, in turn, places pressure on rural communities, which means traditional ways of life are disappearing, although some are being revived."
+          "example": "This, in turn, places pressure on rural communities, which means traditional ways of life are disappearing, although some are being revived.",
+          "expanded": {
+            "point": "The pressures placed on rural communities by urban migration and economic centralisation are reshaping the countryside in profound ways.",
+            "reason": "As young people and working-age adults leave for cities, this, in turn, places enormous pressure on the social and economic fabric of rural communities, which means local businesses close, schools shrink and traditional crafts and practices lose their practitioners.",
+            "example": "In parts of rural Portugal, Greece and Japan, entire villages have been almost entirely depopulated within a single generation, leaving behind ageing populations and deteriorating infrastructure.",
+            "contrast": "Although there are encouraging signs of revival in some communities — driven by remote workers, returnees and cultural tourism — these examples remain the exception rather than the rule.",
+            "conclusion": "The challenge is to create conditions that make rural life genuinely viable for younger generations, without reducing it to a lifestyle product for the affluent."
+          }
         },
         {
           "stem": "The knock-on effect of … is that …",
           "connector": "because … yet",
-          "example": "The knock-on effect of high urban costs is that young people are priced out, because wages have not kept pace with rents, yet cities remain attractive."
+          "example": "The knock-on effect of high urban costs is that young people are priced out, because wages have not kept pace with rents, yet cities remain attractive.",
+          "expanded": {
+            "point": "Rising urban costs are reshaping the social geography of cities in ways that have significant long-term consequences.",
+            "reason": "The knock-on effect of sustained housing price inflation in major cities is that entire demographic groups — particularly young people, artists, teachers and key workers — are systematically priced out, because their earnings have simply not risen in line with accommodation costs.",
+            "example": "In London, for instance, the proportion of under-thirties who own their home has fallen from around half in 1990 to less than a fifth today — a generational shift with enormous implications for wealth distribution and social mobility.",
+            "contrast": "Yet cities continue to attract people in vast numbers, because the economic and cultural rewards of urban life remain compelling despite the financial barriers.",
+            "conclusion": "This tension — between the pull of cities and the unaffordability of living in them — is one of the most pressing political and economic challenges of the coming decade."
+          }
         }
       ]
     },
@@ -218,22 +477,50 @@
         {
           "stem": "One of the key issues here is …",
           "connector": "in that … which suggests",
-          "example": "One of the key issues here is the lack of affordable housing, in that prices have risen dramatically, which suggests urgent policy intervention is needed."
+          "example": "One of the key issues here is the lack of affordable housing, in that prices have risen dramatically, which suggests urgent policy intervention is needed.",
+          "expanded": {
+            "point": "The housing crisis is not a natural phenomenon — it is the result of specific policy choices, and it therefore requires specific policy solutions.",
+            "reason": "One of the key issues here is affordability, in that the gap between average incomes and average housing costs has grown to a point where homeownership — or even stable renting — is out of reach for a significant portion of the population.",
+            "example": "In cities across Europe, including Lisbon, Barcelona and Amsterdam, local residents are being displaced by a combination of tourism, foreign investment and inadequate housing supply.",
+            "contrast": "Which suggests that market forces alone are unlikely to resolve the problem — and that urgent, coordinated intervention from governments at both local and national level is necessary.",
+            "conclusion": "The solutions are well understood — social housing, rent controls, restrictions on short-term lets — but their implementation requires political will that has so far been difficult to sustain."
+          }
         },
         {
           "stem": "One possible solution would be to …",
           "connector": "because … even if",
-          "example": "One possible solution would be to invest in rural infrastructure, because improved connectivity could attract younger residents, even if progress is slow."
+          "example": "One possible solution would be to invest in rural infrastructure, because improved connectivity could attract younger residents, even if progress is slow.",
+          "expanded": {
+            "point": "Revitalising rural areas is not simply a matter of nostalgia — it could play a meaningful role in relieving pressure on overcrowded cities.",
+            "reason": "One possible solution to urban overcrowding and rural depopulation simultaneously would be to invest substantially in rural infrastructure — particularly digital connectivity, transport links and healthcare provision.",
+            "example": "Countries like Estonia and Iceland have demonstrated that high-quality broadband in rural areas, combined with supportive policies for remote workers, can genuinely attract younger residents and revive local economies.",
+            "contrast": "Even if progress on such initiatives tends to be slow, and the results are not guaranteed, the potential gains — in terms of distributing economic activity more evenly across a country — are significant.",
+            "conclusion": "The key is sustained commitment: infrastructure investment rarely produces immediate results, but its long-term effects on communities can be transformative."
+          }
         },
         {
           "stem": "This could be addressed by …",
           "connector": "which would … although",
-          "example": "This could be addressed by creating more remote working opportunities, which would allow people to leave cities, although not everyone has that flexibility."
+          "example": "This could be addressed by creating more remote working opportunities, because this would allow people to leave cities, although not everyone has that flexibility.",
+          "expanded": {
+            "point": "The widespread adoption of remote working has created a genuine opportunity to rebalance how and where people live.",
+            "reason": "The pressure of urban concentration could be addressed, at least in part, by making remote and flexible working the norm rather than the exception — which would give people a real choice about where to live without sacrificing their careers.",
+            "example": "The pandemic demonstrated that many knowledge-economy jobs can be performed effectively from anywhere with a reliable internet connection, and that productivity does not depend on physical proximity to an office.",
+            "contrast": "Although not everyone has the flexibility or the job type to work remotely — and policies that assume otherwise risk deepening existing inequalities between knowledge workers and those in service, care or manual roles.",
+            "conclusion": "A genuinely effective response would need to combine remote working policies with broader structural investments to ensure the benefits are widely shared rather than concentrated among the already privileged."
+          }
         },
         {
           "stem": "While this might work in the short term, …",
           "connector": "a deeper … is needed because",
-          "example": "While this might work in the short term, a deeper structural change is needed because the root causes of inequality have not been tackled."
+          "example": "While this might work in the short term, a deeper structural change is needed because the root causes of inequality have not been tackled.",
+          "expanded": {
+            "point": "Surface-level interventions, however well intentioned, rarely address the structural forces that produce inequality in the first place.",
+            "reason": "While short-term measures — subsidies, emergency housing, targeted grants — can alleviate immediate suffering, a deeper and more comprehensive structural change is needed because the underlying causes of spatial and economic inequality are deeply embedded in policy, taxation and land ownership.",
+            "example": "Rent freezes, for instance, can provide temporary relief for existing tenants but do nothing to increase housing supply or address the investment patterns that drive up costs in the first place.",
+            "contrast": "The danger of relying on short-term solutions is that they can create the appearance of progress while allowing the fundamental problems to worsen beneath the surface.",
+            "conclusion": "Meaningful change requires difficult decisions about land use, taxation and the distribution of economic activity — decisions that are politically costly but increasingly unavoidable."
+          }
         }
       ]
     }
