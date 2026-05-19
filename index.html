@@ -5,305 +5,322 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>B2 Speaking — Part 2</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --bg:      #0e1018;
-  --surface: #13151f;
-  --card:    #181b27;
-  --border:  rgba(221,228,240,.08);
-  --border2: rgba(221,228,240,.14);
-  --text:    #dde4f0;
-  --muted:   rgba(221,228,240,.5);
-  --faint:   rgba(221,228,240,.25);
-  --vfaint:  rgba(221,228,240,.1);
-  --green:   #58BB43;
-  --green-d: rgba(88,187,67,.09);
-  --green-b: rgba(88,187,67,.35);
-  --hh: 52px;
-  --fh: 46px;
+  --bg:      #f5f3ef;
+  --surface: #ffffff;
+  --border:  rgba(0,0,0,.1);
+  --border2: rgba(0,0,0,.16);
+  --text:    #111111;
+  --muted:   #555555;
+  --faint:   #999999;
+  --hh:      52px;
+  --fh:      46px;
   --ff: 'DM Sans', sans-serif;
-  --fd: 'Fraunces', serif;
+  --fd: 'Lora', serif;
+
+  /* Function colours — each has: bg, border, accent, label */
+  --c-spec-bg:    #eff6ff;  --c-spec-bd:  #93c5fd;  --c-spec-acc:  #1d4ed8;  --c-spec-lbl: #3b82f6;
+  --c-sim-bg:     #f0fdf4;  --c-sim-bd:   #86efac;  --c-sim-acc:   #15803d;  --c-sim-lbl:  #22c55e;
+  --c-diff-bg:    #fff7ed;  --c-diff-bd:  #fdba74;  --c-diff-acc:  #c2410c;  --c-diff-lbl: #f97316;
+  --c-adv-bg:     #faf5ff;  --c-adv-bd:   #c4b5fd;  --c-adv-acc:   #6d28d9;  --c-adv-lbl:  #8b5cf6;
+  --c-cause-bg:   #fef2f2;  --c-cause-bd: #fca5a5;  --c-cause-acc: #b91c1c;  --c-cause-lbl:#ef4444;
+  --c-prob-bg:    #ecfdf5;  --c-prob-bd:  #6ee7b7;  --c-prob-acc:  #065f46;  --c-prob-lbl: #10b981;
 }
 
 html, body { width:100%; height:100%; background:var(--bg); color:var(--text); font-family:var(--ff); overflow:hidden; }
 
 /* ── LOAD ── */
-#load { position:fixed; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; z-index:999; }
+#load { position:fixed; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; z-index:9999; }
 #load.gone { display:none; }
 .ld-title { font-family:var(--fd); font-size:22px; font-style:italic; color:var(--text); }
 .ld-sub   { font-size:11px; color:var(--faint); letter-spacing:.1em; }
-.ld-err   { font-size:13px; color:#f06c6c; text-align:center; max-width:320px; line-height:1.6; }
-.spin { width:24px; height:24px; border:1.5px solid var(--border2); border-top-color:var(--green); border-radius:50%; animation:spin .7s linear infinite; }
+.ld-err   { font-size:13px; color:#dc2626; text-align:center; max-width:320px; line-height:1.6; }
+.spin { width:24px; height:24px; border:2px solid var(--border2); border-top-color:#3b82f6; border-radius:50%; animation:spin .7s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 
 /* ── HEADER ── */
 #hdr {
-  position:fixed; top:0; left:0; right:0; height:var(--hh); z-index:100;
-  background:var(--surface); border-bottom:1px solid var(--border);
+  position:fixed; top:0; left:0; right:0; height:var(--hh); z-index:200;
+  background:#ffffff; border-bottom:1.5px solid var(--border2);
   display:flex; align-items:center; justify-content:space-between;
   padding:0 20px; gap:12px;
+  box-shadow:0 1px 8px rgba(0,0,0,.06);
 }
 .hdr-brand { display:flex; flex-direction:column; gap:1px; min-width:0; }
-.hdr-t { font-size:13px; font-weight:600; color:var(--text); white-space:nowrap; }
-.hdr-s { font-size:9px; color:var(--faint); letter-spacing:.1em; }
+.hdr-t { font-size:13px; font-weight:700; color:var(--text); white-space:nowrap; }
+.hdr-s { font-size:9px; color:var(--faint); letter-spacing:.12em; }
 
 .mode-pill {
-  display:flex; background:var(--vfaint);
-  border:1px solid var(--border); border-radius:99px; padding:3px; gap:2px; flex-shrink:0;
+  display:flex; background:#f0f0f0;
+  border:1.5px solid var(--border2); border-radius:99px; padding:3px; gap:2px; flex-shrink:0;
 }
 .mb {
-  font-size:11px; font-weight:600; letter-spacing:.05em;
+  font-size:11px; font-weight:700; letter-spacing:.05em;
   padding:5px 16px; border-radius:99px; border:none; cursor:pointer;
   font-family:var(--ff); background:transparent; color:var(--faint);
   transition:all .2s;
 }
-.mb.on { background:rgba(221,228,240,.1); color:var(--text); }
+.mb.on { background:#ffffff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,.12); }
 
 .prompt-btn {
-  font-size:11px; font-weight:500; padding:5px 12px;
-  border-radius:7px; border:1px solid var(--border2);
+  font-size:11px; font-weight:600; padding:5px 12px;
+  border-radius:7px; border:1.5px solid var(--border2);
   background:transparent; color:var(--muted); cursor:pointer;
   font-family:var(--ff); transition:all .2s; white-space:nowrap; flex-shrink:0;
 }
-.prompt-btn:hover { color:var(--text); border-color:rgba(221,228,240,.25); }
+.prompt-btn:hover { color:var(--text); border-color:rgba(0,0,0,.3); }
 
 /* ── FUNCTION STRIP ── */
 #fstrip {
-  position:fixed; top:var(--hh); left:0; right:0; height:var(--fh); z-index:90;
-  background:var(--bg); border-bottom:1px solid var(--border);
+  position:fixed; top:var(--hh); left:0; right:0; height:var(--fh); z-index:190;
+  background:#ffffff; border-bottom:1.5px solid var(--border2);
   display:flex; align-items:center; gap:6px;
   padding:0 16px; overflow-x:auto; scrollbar-width:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
 #fstrip::-webkit-scrollbar { display:none; }
+
 .fb {
-  font-size:11px; font-weight:600; letter-spacing:.04em; white-space:nowrap;
-  padding:5px 14px; border-radius:99px;
-  border:1px solid var(--border); background:transparent; color:var(--faint);
+  font-size:11px; font-weight:700; letter-spacing:.05em; white-space:nowrap;
+  padding:6px 16px; border-radius:99px;
+  border:1.5px solid transparent; background:transparent; color:var(--faint);
   cursor:pointer; font-family:var(--ff); transition:all .18s; flex-shrink:0;
 }
-.fb:hover { color:var(--muted); border-color:var(--border2); }
-.fb.on { background:rgba(221,228,240,.08); color:var(--text); border-color:var(--border2); }
+.fb:hover { color:var(--text); }
+
+/* colour-coded active state per function */
+.fb[data-fn="speculation"].on   { background:var(--c-spec-bg);  border-color:var(--c-spec-bd);  color:var(--c-spec-acc); }
+.fb[data-fn="similarities"].on  { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);   color:var(--c-sim-acc);  }
+.fb[data-fn="differences"].on   { background:var(--c-diff-bg);  border-color:var(--c-diff-bd);  color:var(--c-diff-acc); }
+.fb[data-fn="advantages"].on    { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);   color:var(--c-adv-acc);  }
+.fb[data-fn="cause"].on         { background:var(--c-cause-bg); border-color:var(--c-cause-bd); color:var(--c-cause-acc);}
+.fb[data-fn="problems"].on      { background:var(--c-prob-bg);  border-color:var(--c-prob-bd);  color:var(--c-prob-acc); }
 
 /* ── APP ── */
 #app {
   position:fixed;
   top:calc(var(--hh) + var(--fh));
   left:0; right:0; bottom:0;
-  overflow:hidden;
+  overflow:hidden; /* canvas for free drag */
 }
 
-/* ══════════════════════════════
-   CLASS VIEW
-══════════════════════════════ */
-#classView {
-  width:100%; height:100%;
-  display:flex; flex-direction:column;
-  align-items:center;
-  overflow-y:auto;
-  padding:20px 16px 80px;
-  scrollbar-width:thin;
-  scrollbar-color:var(--vfaint) transparent;
+/* ── PROMPT CARD (draggable) ── */
+#promptCard {
+  position:absolute;
+  top:24px; left:50%;
+  transform:translateX(-50%);
+  background:#ffffff;
+  border:1.5px solid var(--border2);
+  border-radius:16px;
+  padding:18px 28px;
+  text-align:center;
+  min-width:260px; max-width:480px;
+  cursor:grab;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  user-select:none;
+  z-index:10;
+  display:none; /* hidden until a prompt is selected */
 }
+#promptCard.show { display:block; }
+#promptCard:active { cursor:grabbing; }
+.pc-em  { font-size:28px; margin-bottom:6px; display:block; }
+.pc-txt { font-family:var(--fd); font-size:16px; font-style:italic; color:var(--muted); line-height:1.5; }
 
-.prompt-box {
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:14px; padding:14px 20px;
-  text-align:center; max-width:520px; width:100%;
-  margin-bottom:18px; flex-shrink:0;
+/* ── PHRASE CARDS (free-drag) ── */
+.phrase-card {
+  position:absolute;
+  background:#ffffff;
+  border-radius:13px;
+  border:1.5px solid var(--border2);
+  padding:14px 16px 12px;
+  min-width:200px; max-width:260px;
+  cursor:grab;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+  user-select:none;
+  transition:box-shadow .15s, transform .1s;
+  z-index:20;
 }
-.pb-emoji { font-size:26px; margin-bottom:6px; display:block; }
-.pb-text {
-  font-family:var(--fd); font-size:15px; font-style:italic;
-  color:var(--muted); line-height:1.5;
-}
+.phrase-card:active { cursor:grabbing; box-shadow:0 8px 28px rgba(0,0,0,.16); }
+.phrase-card.used   { opacity:.55; cursor:default; }
 
-/* Phrase grid — drag-and-drop */
-#phraseGrid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(210px, 1fr));
-  gap:8px; width:100%; max-width:960px;
-}
+/* colour theme per function */
+.phrase-card[data-fn="speculation"]  { background:var(--c-spec-bg);  border-color:var(--c-spec-bd); }
+.phrase-card[data-fn="similarities"] { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);  }
+.phrase-card[data-fn="differences"]  { background:var(--c-diff-bg);  border-color:var(--c-diff-bd); }
+.phrase-card[data-fn="advantages"]   { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);  }
+.phrase-card[data-fn="cause"]        { background:var(--c-cause-bg); border-color:var(--c-cause-bd);}
+.phrase-card[data-fn="problems"]     { background:var(--c-prob-bg);  border-color:var(--c-prob-bd); }
 
-.pcell {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:10px; padding:12px 14px;
-  cursor:grab; transition:border-color .15s, background .15s, opacity .15s, box-shadow .15s;
-  position:relative; user-select:none;
+.phc-fn {
+  font-size:9px; font-weight:800; letter-spacing:.1em; margin-bottom:7px;
+  text-transform:uppercase;
 }
-.pcell:hover { border-color:var(--border2); background:var(--card); }
-.pcell.used {
-  background:var(--green-d); border-color:var(--green-b);
-  cursor:default;
-}
-.pcell.used:hover { background:var(--green-d); border-color:var(--green-b); }
-.pcell.dragging {
-  opacity:.4; cursor:grabbing; box-shadow:0 8px 24px rgba(0,0,0,.5);
-}
-.pcell.drag-over { border-color:rgba(221,228,240,.4); background:rgba(221,228,240,.04); }
+.phrase-card[data-fn="speculation"]  .phc-fn { color:var(--c-spec-lbl);  }
+.phrase-card[data-fn="similarities"] .phc-fn { color:var(--c-sim-lbl);   }
+.phrase-card[data-fn="differences"]  .phc-fn { color:var(--c-diff-lbl);  }
+.phrase-card[data-fn="advantages"]   .phc-fn { color:var(--c-adv-lbl);   }
+.phrase-card[data-fn="cause"]        .phc-fn { color:var(--c-cause-lbl); }
+.phrase-card[data-fn="problems"]     .phc-fn { color:var(--c-prob-lbl);  }
 
-.pc-stem { font-size:13px; font-weight:600; color:var(--text); line-height:1.35; margin-bottom:4px; }
-.pc-conn { font-size:11px; color:var(--faint); font-style:italic; font-family:var(--fd); line-height:1.3; }
-.pc-who { font-size:10px; font-weight:600; color:var(--green); margin-top:6px; letter-spacing:.04em; }
-.pc-fn {
-  position:absolute; top:8px; right:10px;
-  font-size:9px; font-weight:700; letter-spacing:.06em;
-  color:var(--faint); opacity:.5;
-}
+.phc-stem { font-size:16px; font-weight:700; color:var(--text); line-height:1.35; margin-bottom:5px; }
+.phc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.35; }
+.phc-who  { font-size:10px; font-weight:700; color:var(--muted); margin-top:8px; letter-spacing:.04em; }
 
 /* ── STUDENT PANEL ── */
 #stu {
-  position:fixed; bottom:0; left:0; right:0; z-index:80;
-  background:var(--surface); border-top:1px solid var(--border2);
-  padding:10px 20px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  position:fixed; bottom:0; left:0; right:0; z-index:300;
+  background:#ffffff; border-top:1.5px solid var(--border2);
+  padding:12px 20px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
   transform:translateY(100%);
   transition:transform .28s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 -4px 20px rgba(0,0,0,.08);
 }
 #stu.open { transform:translateY(0); }
-.stu-lbl { font-size:10px; color:var(--faint); letter-spacing:.08em; flex-shrink:0; }
+.stu-lbl { font-size:10px; font-weight:700; color:var(--faint); letter-spacing:.08em; flex-shrink:0; }
 #stuName {
-  background:var(--card); border:1px solid var(--border2);
-  border-radius:7px; padding:6px 12px; font-size:13px;
-  color:var(--text); outline:none; width:140px; font-family:var(--ff);
+  background:#f5f3ef; border:1.5px solid var(--border2);
+  border-radius:8px; padding:7px 12px; font-size:13px;
+  color:var(--text); outline:none; width:160px; font-family:var(--ff);
 }
-#stuName:focus { border-color:rgba(221,228,240,.3); }
+#stuName:focus { border-color:#3b82f6; }
 .stu-mark {
-  font-size:11px; font-weight:600; padding:7px 16px; border-radius:7px;
-  border:1px solid var(--green-b); background:var(--green-d); color:var(--green);
+  font-size:11px; font-weight:700; padding:8px 18px; border-radius:8px;
+  border:1.5px solid #86efac; background:#f0fdf4; color:#15803d;
   cursor:pointer; font-family:var(--ff); transition:all .15s;
 }
-.stu-mark:hover { background:rgba(88,187,67,.15); }
+.stu-mark:hover { background:#dcfce7; }
 .stu-close {
-  margin-left:auto; font-size:11px; color:var(--faint);
-  background:none; border:none; cursor:pointer; font-family:var(--ff);
+  margin-left:auto; font-size:18px; color:var(--faint);
+  background:none; border:none; cursor:pointer; font-family:var(--ff); line-height:1;
 }
-.stu-close:hover { color:var(--muted); }
-
-/* ══════════════════════════════
-   SOLO VIEW
-══════════════════════════════ */
-#soloView {
-  width:100%; height:100%;
-  display:none; flex-direction:column; align-items:center;
-  overflow-y:auto; padding:20px 16px 40px;
-  scrollbar-width:thin; scrollbar-color:var(--vfaint) transparent;
-}
-
-.solo-prompt {
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:12px; padding:14px 20px;
-  text-align:center; max-width:760px; width:100%; margin-bottom:16px;
-}
-.sop-em { font-size:22px; margin-bottom:5px; display:block; }
-.sop-q { font-family:var(--fd); font-size:15px; font-style:italic; color:var(--muted); line-height:1.45; }
-
-/* Function tabs in solo */
-.func-tabs {
-  display:flex; gap:6px; flex-wrap:wrap; justify-content:center;
-  max-width:760px; width:100%; margin-bottom:18px;
-}
-.ftab {
-  font-size:11px; font-weight:600; letter-spacing:.04em;
-  padding:5px 13px; border-radius:99px;
-  border:1px solid var(--border); background:transparent; color:var(--faint);
-  cursor:pointer; font-family:var(--ff); transition:all .18s;
-}
-.ftab:hover { color:var(--muted); border-color:var(--border2); }
-.ftab.on { background:rgba(221,228,240,.08); color:var(--text); border-color:var(--border2); }
-
-/* 3-choice cards row */
-#choiceRow {
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:10px; max-width:760px; width:100%; margin-bottom:18px;
-}
-.choice-card {
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:12px; padding:16px 16px 14px;
-  cursor:pointer; transition:all .18s;
-  display:flex; flex-direction:column; gap:6px;
-}
-.choice-card:hover { background:var(--card); border-color:rgba(221,228,240,.25); transform:translateY(-1px); }
-.choice-card.picked {
-  background:rgba(221,228,240,.05); border-color:rgba(221,228,240,.35);
-  cursor:default; transform:none;
-}
-.cc-num { font-size:10px; color:var(--faint); letter-spacing:.08em; font-weight:600; }
-.cc-stem { font-size:14px; font-weight:600; color:var(--text); line-height:1.35; }
-.cc-conn { font-size:11px; color:var(--faint); font-style:italic; font-family:var(--fd); line-height:1.3; }
-
-/* Expanded response */
-#expandedBox {
-  max-width:760px; width:100%;
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:12px; overflow:hidden;
-  display:none;
-}
-#expandedBox.show { display:block; animation:fadeUp .35s ease; }
-@keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
-
-.exp-header {
-  padding:14px 20px 10px;
-  border-bottom:1px solid var(--border);
-  display:flex; align-items:center; gap:10px;
-}
-.exp-stem { font-size:15px; font-weight:600; color:var(--text); }
-.exp-conn { font-size:11px; color:var(--faint); font-style:italic; font-family:var(--fd); }
-
-.exp-body { padding:16px 20px; display:flex; flex-direction:column; gap:14px; }
-.exp-row { display:flex; flex-direction:column; gap:4px; }
-.exp-label {
-  font-size:9px; font-weight:700; letter-spacing:.12em;
-  color:var(--faint); text-transform:uppercase;
-}
-.exp-text { font-size:13px; color:var(--muted); line-height:1.65; }
-.exp-text.highlight { color:var(--text); font-weight:500; }
-
-.exp-next {
-  margin:0 20px 16px; font-size:11px; font-weight:600;
-  padding:8px 20px; border-radius:8px;
-  border:1px solid var(--border2); background:transparent; color:var(--muted);
-  cursor:pointer; font-family:var(--ff); transition:all .15s; align-self:flex-start;
-  display:inline-block;
-}
-.exp-next:hover { color:var(--text); border-color:rgba(221,228,240,.3); }
+.stu-close:hover { color:var(--text); }
 
 /* ── PROMPT DROPDOWN ── */
 #pdrop {
   position:fixed; top:calc(var(--hh) + 6px); right:20px;
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:12px; min-width:280px; z-index:300;
-  box-shadow:0 8px 32px rgba(0,0,0,.5); display:none; overflow:hidden;
+  background:#ffffff; border:1.5px solid var(--border2);
+  border-radius:14px; min-width:300px; z-index:400;
+  box-shadow:0 8px 32px rgba(0,0,0,.14); display:none; overflow:hidden;
   max-height:calc(100vh - 80px); overflow-y:auto;
 }
 #pdrop.show { display:block; }
 .pd-item {
   display:flex; align-items:center; gap:12px;
-  padding:10px 14px; cursor:pointer;
+  padding:11px 16px; cursor:pointer;
   border-bottom:1px solid var(--border); transition:background .15s;
 }
 .pd-item:last-child { border-bottom:none; }
-.pd-item:hover { background:rgba(221,228,240,.04); }
-.pd-item.sel { background:rgba(221,228,240,.05); }
-.pd-item.sel .pd-q { color:var(--text); }
-.pd-em { font-size:18px; flex-shrink:0; }
-.pd-q { font-family:var(--fd); font-size:12px; font-style:italic; color:var(--muted); line-height:1.3; }
+.pd-item:hover { background:#f5f3ef; }
+.pd-item.sel { background:#eff6ff; }
+.pd-em { font-size:20px; flex-shrink:0; }
+.pd-q { font-family:var(--fd); font-size:13px; font-style:italic; color:var(--muted); line-height:1.3; }
+.pd-q.sel { color:var(--text); }
 
-/* ── RESPONSIVE ── */
+/* ── SOLO VIEW ── */
+#soloView {
+  width:100%; height:100%;
+  display:none; flex-direction:column; align-items:center;
+  overflow-y:auto; padding:24px 16px 60px;
+  scrollbar-width:thin; scrollbar-color:rgba(0,0,0,.1) transparent;
+}
+
+.solo-prompt {
+  background:#ffffff; border:1.5px solid var(--border2);
+  border-radius:14px; padding:16px 24px;
+  text-align:center; max-width:700px; width:100%; margin-bottom:18px;
+  box-shadow:0 1px 6px rgba(0,0,0,.05);
+}
+.sop-em { font-size:24px; margin-bottom:5px; display:block; }
+.sop-q { font-family:var(--fd); font-size:16px; font-style:italic; color:var(--muted); line-height:1.45; }
+
+.func-tabs {
+  display:flex; gap:6px; flex-wrap:wrap; justify-content:center;
+  max-width:700px; width:100%; margin-bottom:18px;
+}
+.ftab {
+  font-size:11px; font-weight:700; letter-spacing:.05em;
+  padding:6px 14px; border-radius:99px;
+  border:1.5px solid transparent; background:#f0f0f0; color:var(--faint);
+  cursor:pointer; font-family:var(--ff); transition:all .18s;
+}
+.ftab:hover { color:var(--text); }
+.ftab[data-fn="speculation"].on   { background:var(--c-spec-bg);  border-color:var(--c-spec-bd);  color:var(--c-spec-acc); }
+.ftab[data-fn="similarities"].on  { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);   color:var(--c-sim-acc);  }
+.ftab[data-fn="differences"].on   { background:var(--c-diff-bg);  border-color:var(--c-diff-bd);  color:var(--c-diff-acc); }
+.ftab[data-fn="advantages"].on    { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);   color:var(--c-adv-acc);  }
+.ftab[data-fn="cause"].on         { background:var(--c-cause-bg); border-color:var(--c-cause-bd); color:var(--c-cause-acc);}
+.ftab[data-fn="problems"].on      { background:var(--c-prob-bg);  border-color:var(--c-prob-bd);  color:var(--c-prob-acc); }
+
+#choiceRow {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:10px; max-width:700px; width:100%; margin-bottom:18px;
+}
+.choice-card {
+  border-radius:13px; padding:18px 16px 14px;
+  cursor:pointer; transition:all .18s; border:1.5px solid var(--border2);
+  display:flex; flex-direction:column; gap:6px; background:#ffffff;
+}
+.choice-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.1); }
+.choice-card.picked { cursor:default; transform:none; }
+.choice-card[data-fn="speculation"]  { background:var(--c-spec-bg);  border-color:var(--c-spec-bd); }
+.choice-card[data-fn="similarities"] { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);  }
+.choice-card[data-fn="differences"]  { background:var(--c-diff-bg);  border-color:var(--c-diff-bd); }
+.choice-card[data-fn="advantages"]   { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);  }
+.choice-card[data-fn="cause"]        { background:var(--c-cause-bg); border-color:var(--c-cause-bd);}
+.choice-card[data-fn="problems"]     { background:var(--c-prob-bg);  border-color:var(--c-prob-bd); }
+.choice-card.picked { border-width:2px; }
+.cc-num { font-size:9px; font-weight:800; letter-spacing:.1em; }
+.choice-card[data-fn="speculation"]  .cc-num { color:var(--c-spec-lbl);  }
+.choice-card[data-fn="similarities"] .cc-num { color:var(--c-sim-lbl);   }
+.choice-card[data-fn="differences"]  .cc-num { color:var(--c-diff-lbl);  }
+.choice-card[data-fn="advantages"]   .cc-num { color:var(--c-adv-lbl);   }
+.choice-card[data-fn="cause"]        .cc-num { color:var(--c-cause-lbl); }
+.choice-card[data-fn="problems"]     .cc-num { color:var(--c-prob-lbl);  }
+.cc-stem { font-size:15px; font-weight:700; color:var(--text); line-height:1.35; }
+.cc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.3; }
+
+#expandedBox {
+  max-width:700px; width:100%; background:#ffffff;
+  border:1.5px solid var(--border2); border-radius:13px;
+  overflow:hidden; display:none; box-shadow:0 2px 12px rgba(0,0,0,.07);
+}
+#expandedBox.show { display:block; animation:fadeUp .32s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.exp-header { padding:14px 20px 12px; border-bottom:1px solid var(--border); }
+.exp-stem { font-size:16px; font-weight:700; color:var(--text); }
+.exp-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); }
+.exp-body { padding:16px 20px; display:flex; flex-direction:column; gap:14px; }
+.exp-row  { display:flex; flex-direction:column; gap:4px; }
+.exp-label { font-size:9px; font-weight:800; letter-spacing:.12em; color:var(--faint); text-transform:uppercase; }
+.exp-text  { font-size:14px; color:var(--muted); line-height:1.65; }
+.exp-text.highlight { color:var(--text); font-weight:600; }
+.exp-next {
+  margin:0 20px 18px; font-size:11px; font-weight:700;
+  padding:8px 20px; border-radius:8px;
+  border:1.5px solid var(--border2); background:#f5f3ef; color:var(--muted);
+  cursor:pointer; font-family:var(--ff); transition:all .15s; display:inline-block;
+}
+.exp-next:hover { color:var(--text); background:#ebebeb; }
+
+/* ── HINT ── */
+#hint {
+  position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  font-size:11px; color:var(--faint); letter-spacing:.06em;
+  pointer-events:none; transition:opacity .4s;
+}
+#hint.hidden { opacity:0; }
+
 @media(max-width:640px) {
   :root { --hh:46px; --fh:40px; }
   #hdr { padding:0 12px; gap:8px; }
   .hdr-t { font-size:12px; }
   .mb { font-size:10px; padding:4px 12px; }
-  #phraseGrid { grid-template-columns:1fr 1fr; gap:6px; }
   #choiceRow { grid-template-columns:1fr; }
-  .pc-stem { font-size:12px; }
-  .cc-stem { font-size:13px; }
-}
-@media(max-width:420px) {
-  #phraseGrid { grid-template-columns:1fr; }
+  .phc-stem { font-size:15px; }
 }
 </style>
 </head>
@@ -331,11 +348,29 @@ html, body { width:100%; height:100%; background:var(--bg); color:var(--text); f
 <div id="pdrop"></div>
 
 <div id="app">
-  <div id="classView"></div>
-  <div id="soloView"></div>
+  <!-- Class mode: free-drag canvas -->
+  <div id="classCanvas">
+    <div id="promptCard">
+      <span class="pc-em" id="pcEmoji"></span>
+      <div class="pc-txt" id="pcText"></div>
+    </div>
+  </div>
+
+  <!-- Solo mode -->
+  <div id="soloView">
+    <div class="solo-prompt">
+      <span class="sop-em" id="sopEmoji"></span>
+      <div class="sop-q"   id="sopText"></div>
+    </div>
+    <div class="func-tabs" id="funcTabs"></div>
+    <div id="choiceRow"></div>
+    <div id="expandedBox"></div>
+  </div>
 </div>
 
-<!-- Student panel (class mode) -->
+<div id="hint">Click a category above to reveal cards</div>
+
+<!-- Student panel -->
 <div id="stu">
   <span class="stu-lbl">USED BY</span>
   <input id="stuName" placeholder="Student name…" maxlength="24" autocomplete="off">
@@ -348,19 +383,19 @@ html, body { width:100%; height:100%; background:var(--bg); color:var(--text); f
 //  STATE
 // ═══════════════════════════
 let D = {};
-let mode      = 'class';
-let promptIdx = 0;
-let activeFunc = null;     // class mode filter
-let pendingCell = null;    // { funcId, phraseIdx }
-let usedMap = {};          // "funcId:phraseIdx" → studentName
-let cardOrder = [];        // array of {funcId, phraseIdx} — class mode order
+let mode       = 'class';
+let promptIdx  = -1;     // -1 = no prompt selected
+let activeFunc = null;
+let pendingCard = null;  // element being assigned
+let usedMap    = {};     // key → studentName
 
 let soloFuncIdx  = 0;
-let soloPickedIdx = null;  // which of the 3 choices was picked (0,1,2)
-let soloTriple   = [];     // 3 phrase objects for current round
+let soloPickedIdx = null;
+let soloTriple   = [];
 
-// drag state
-let dragSrc = null;
+// Free-drag state
+let dragging = null;
+let dragOffX = 0, dragOffY = 0;
 
 // ═══════════════════════════
 //  LOAD
@@ -381,19 +416,9 @@ async function load() {
 }
 
 function buildAll() {
-  rebuildOrder();
   buildPromptDrop();
   buildFstrip();
-  renderClass();
-  renderSolo();
-}
-
-// flat order array — all phrases across all functions
-function rebuildOrder() {
-  cardOrder = [];
-  D.functions.forEach(fn => {
-    fn.phrases.forEach((_, pi) => cardOrder.push({ funcId: fn.id, phraseIdx: pi }));
-  });
+  renderSoloFuncTabs();
 }
 
 // ═══════════════════════════
@@ -403,9 +428,10 @@ function setMode(m) {
   mode = m;
   document.getElementById('btnClass').classList.toggle('on', m === 'class');
   document.getElementById('btnSolo').classList.toggle('on',  m === 'solo');
-  document.getElementById('classView').style.display = m === 'class' ? 'flex' : 'none';
-  document.getElementById('soloView').style.display  = m === 'solo'  ? 'flex' : 'none';
-  document.getElementById('fstrip').style.display    = m === 'class' ? 'flex' : 'none';
+  document.getElementById('classCanvas').style.display = m === 'class' ? 'block' : 'none';
+  document.getElementById('soloView').style.display    = m === 'solo'  ? 'flex'  : 'none';
+  document.getElementById('fstrip').style.display      = m === 'class' ? 'flex'  : 'none';
+  document.getElementById('hint').classList.toggle('hidden', m !== 'class');
   closeStu();
 }
 
@@ -416,7 +442,7 @@ function buildPromptDrop() {
   document.getElementById('pdrop').innerHTML = D.prompts.map((p,i) =>
     `<div class="pd-item${i===promptIdx?' sel':''}" onclick="selectPrompt(${i})">
        <span class="pd-em">${p.emoji}</span>
-       <span class="pd-q">${p.text}</span>
+       <span class="pd-q${i===promptIdx?' sel':''}">${p.text}</span>
      </div>`
   ).join('');
 }
@@ -428,16 +454,26 @@ function toggleDrop() {
 function selectPrompt(i) {
   promptIdx = i;
   usedMap   = {};
-  rebuildOrder();
-  activeFunc = null;
   document.getElementById('pdrop').classList.remove('show');
   buildPromptDrop();
-  buildFstrip();
-  renderClass();
+
+  // Update prompt card
+  const p = D.prompts[i];
+  document.getElementById('pcEmoji').textContent = p.emoji;
+  document.getElementById('pcText').textContent  = p.text;
+  document.getElementById('promptCard').classList.add('show');
+
+  // Update solo prompt
+  document.getElementById('sopEmoji').textContent = p.emoji;
+  document.getElementById('sopText').textContent  = p.text;
+
+  // Re-render existing category if active
+  if (activeFunc) spawnCards(activeFunc);
+
   soloFuncIdx   = 0;
   soloPickedIdx = null;
   dealSoloTriple();
-  renderSolo();
+  renderSoloContent();
 }
 
 document.addEventListener('click', e => {
@@ -452,137 +488,191 @@ document.addEventListener('click', e => {
 function buildFstrip() {
   const strip = document.getElementById('fstrip');
   strip.innerHTML = D.functions.map(f =>
-    `<button class="fb${activeFunc===f.id?' on':''}" onclick="selectFunc('${f.id}')">${f.label}</button>`
+    `<button class="fb${activeFunc===f.id?' on':''}" data-fn="${f.id}" onclick="selectFunc('${f.id}')">${f.label}</button>`
   ).join('');
 }
 
 function selectFunc(id) {
-  activeFunc = activeFunc === id ? null : id;
+  if (activeFunc === id) {
+    // toggle off — remove cards
+    activeFunc = null;
+    clearCards();
+    buildFstrip();
+    document.getElementById('hint').classList.remove('hidden');
+    return;
+  }
+  activeFunc = id;
   buildFstrip();
-  renderClass();
+  document.getElementById('hint').classList.add('hidden');
+  spawnCards(id);
 }
 
 // ═══════════════════════════
-//  CLASS VIEW
+//  CLASS CANVAS — FREE DRAG
 // ═══════════════════════════
-function getPhrase(funcId, phraseIdx) {
+const canvas = document.getElementById('classCanvas');
+
+function clearCards() {
+  canvas.querySelectorAll('.phrase-card').forEach(c => c.remove());
+}
+
+function spawnCards(funcId) {
+  clearCards();
   const fn = D.functions.find(f => f.id === funcId);
-  return fn ? fn.phrases[phraseIdx] : null;
-}
-function getFunc(funcId) { return D.functions.find(f => f.id === funcId); }
+  if (!fn) return;
 
-function renderClass() {
-  const v = document.getElementById('classView');
-  const p = D.prompts[promptIdx];
+  // Cascade from top-left with slight offsets
+  const startX = 20, startY = 20;
+  const colW   = 260, rowH = 130;
+  const cols   = Math.max(1, Math.floor((window.innerWidth - 40) / colW));
 
-  // filter by activeFunc if set
-  const visible = activeFunc
-    ? cardOrder.filter(c => c.funcId === activeFunc)
-    : cardOrder;
-
-  let cells = visible.map((c, i) => {
-    const ph  = getPhrase(c.funcId, c.phraseIdx);
-    const fn  = getFunc(c.funcId);
-    if (!ph || !fn) return '';
-    const key = c.funcId + ':' + c.phraseIdx;
+  fn.phrases.forEach((ph, pi) => {
+    const col = pi % cols;
+    const row = Math.floor(pi / cols);
+    const x   = startX + col * colW;
+    const y   = startY + row * rowH;
+    const key = funcId + ':' + pi;
     const who = usedMap[key];
-    const isUsed = !!who;
-    return `<div class="pcell${isUsed?' used':''}"
-                data-func="${c.funcId}" data-idx="${c.phraseIdx}"
-                data-order="${i}"
-                draggable="${isUsed?'false':'true'}">
-              <div class="pc-fn">${fn.label.toUpperCase()}</div>
-              <div class="pc-stem">${ph.stem}</div>
-              <div class="pc-conn">${ph.connector}</div>
-              ${who ? `<div class="pc-who">${who}</div>` : ''}
-            </div>`;
-  }).join('');
-
-  v.innerHTML = `
-    <div class="prompt-box">
-      <span class="pb-emoji">${p.emoji}</span>
-      <div class="pb-text">${p.text}</div>
-    </div>
-    <div id="phraseGrid">${cells}</div>`;
-
-  // click to open student panel
-  v.querySelectorAll('.pcell:not(.used)').forEach(c => {
-    c.addEventListener('click', () => openStu(c.dataset.func, +c.dataset.idx));
-  });
-
-  // drag-and-drop
-  setupDrag();
-}
-
-// ── DRAG-AND-DROP ──
-function setupDrag() {
-  const cells = document.querySelectorAll('.pcell:not(.used)');
-  cells.forEach(cell => {
-    cell.addEventListener('dragstart', onDragStart);
-    cell.addEventListener('dragenter', onDragEnter);
-    cell.addEventListener('dragover',  onDragOver);
-    cell.addEventListener('dragleave', onDragLeave);
-    cell.addEventListener('drop',      onDrop);
-    cell.addEventListener('dragend',   onDragEnd);
+    createCard(fn, ph, pi, x, y, who);
   });
 }
 
-function onDragStart(e) {
-  dragSrc = this;
-  this.classList.add('dragging');
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/plain', this.dataset.order);
+function createCard(fn, ph, pi, x, y, who) {
+  const card = document.createElement('div');
+  card.className = 'phrase-card' + (who ? ' used' : '');
+  card.setAttribute('data-fn', fn.id);
+  card.setAttribute('data-pi', pi);
+  card.style.left = x + 'px';
+  card.style.top  = y + 'px';
+
+  card.innerHTML = `
+    <div class="phc-fn">${fn.label.toUpperCase()}</div>
+    <div class="phc-stem">${ph.stem}</div>
+    <div class="phc-conn">${ph.connector}</div>
+    ${who ? `<div class="phc-who">✓ ${who}</div>` : ''}`;
+
+  canvas.appendChild(card);
+
+  if (!who) {
+    makeDraggable(card);
+    card.addEventListener('click', e => {
+      if (card.dataset.moved === '1') { card.dataset.moved = '0'; return; }
+      openStu(card);
+    });
+  }
 }
-function onDragEnter(e) { e.preventDefault(); this.classList.add('drag-over'); }
-function onDragOver(e)  { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; }
-function onDragLeave()  { this.classList.remove('drag-over'); }
-function onDrop(e) {
+
+function makeDraggable(el) {
+  el.addEventListener('mousedown', startDrag);
+  el.addEventListener('touchstart', startDragTouch, { passive:true });
+}
+
+function startDrag(e) {
+  if (e.button !== 0) return;
+  beginDrag(el => el, e.clientX, e.clientY, e.currentTarget);
   e.preventDefault();
-  this.classList.remove('drag-over');
-  if (dragSrc === this) return;
-
-  const srcFunc = dragSrc.dataset.func;
-  const srcIdx  = +dragSrc.dataset.idx;
-  const tgtFunc = this.dataset.func;
-  const tgtIdx  = +this.dataset.idx;
-
-  // find positions in cardOrder
-  const srcPos = cardOrder.findIndex(c => c.funcId === srcFunc && c.phraseIdx === srcIdx);
-  const tgtPos = cardOrder.findIndex(c => c.funcId === tgtFunc && c.phraseIdx === tgtIdx);
-  if (srcPos < 0 || tgtPos < 0) return;
-
-  const [moved] = cardOrder.splice(srcPos, 1);
-  cardOrder.splice(tgtPos, 0, moved);
-  renderClass();
 }
-function onDragEnd() {
-  document.querySelectorAll('.pcell').forEach(c => {
-    c.classList.remove('dragging','drag-over');
-  });
-  dragSrc = null;
+
+function startDragTouch(e) {
+  const t = e.touches[0];
+  beginDrag(el => el, t.clientX, t.clientY, e.currentTarget);
 }
+
+function beginDrag(_, cx, cy, el) {
+  dragging = el;
+  const rect = el.getBoundingClientRect();
+  dragOffX = cx - rect.left;
+  dragOffY = cy - rect.top;
+  el.style.zIndex = 50;
+  el.style.boxShadow = '0 12px 32px rgba(0,0,0,.18)';
+  el.dataset.moved = '0';
+  el.style.transition = 'none';
+}
+
+document.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  moveDrag(e.clientX, e.clientY);
+});
+document.addEventListener('touchmove', e => {
+  if (!dragging) return;
+  moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive:true });
+
+function moveDrag(cx, cy) {
+  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
+                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
+  const x = cx - dragOffX;
+  const y = cy - dragOffY - appTop;
+  dragging.style.left = x + 'px';
+  dragging.style.top  = y + 'px';
+  dragging.dataset.moved = '1';
+}
+
+document.addEventListener('mouseup', endDrag);
+document.addEventListener('touchend', endDrag);
+function endDrag() {
+  if (!dragging) return;
+  dragging.style.zIndex = 20;
+  dragging.style.boxShadow = '';
+  dragging = null;
+}
+
+// Also make prompt card draggable
+const pcEl = document.getElementById('promptCard');
+pcEl.addEventListener('mousedown', e => {
+  if (e.button !== 0) return;
+  const rect = pcEl.getBoundingClientRect();
+  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
+                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
+  dragging = { isPrompt: true, offX: e.clientX - rect.left, offY: e.clientY - rect.top };
+  e.preventDefault();
+});
+document.addEventListener('mousemove', e => {
+  if (!dragging || !dragging.isPrompt) return;
+  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
+                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
+  const x = e.clientX - dragging.offX;
+  const y = e.clientY - dragging.offY - appTop;
+  pcEl.style.left      = x + 'px';
+  pcEl.style.top       = y + 'px';
+  pcEl.style.transform = 'none';
+});
+document.addEventListener('mouseup', () => {
+  if (dragging && dragging.isPrompt) dragging = null;
+});
 
 // ── STUDENT PANEL ──
-function openStu(funcId, phraseIdx) {
-  pendingCell = { funcId, phraseIdx };
+function openStu(cardEl) {
+  pendingCard = cardEl;
   document.getElementById('stuName').value = '';
   document.getElementById('stu').classList.add('open');
   setTimeout(() => document.getElementById('stuName').focus(), 180);
 }
-
 function closeStu() {
-  pendingCell = null;
+  pendingCard = null;
   document.getElementById('stu').classList.remove('open');
 }
-
 function markUsed() {
-  if (!pendingCell) return;
-  const name = document.getElementById('stuName').value.trim() || 'Student';
-  usedMap[pendingCell.funcId + ':' + pendingCell.phraseIdx] = name;
-  closeStu();
-  renderClass();
-}
+  if (!pendingCard) return;
+  const name   = document.getElementById('stuName').value.trim() || 'Student';
+  const funcId = pendingCard.getAttribute('data-fn');
+  const pi     = +pendingCard.getAttribute('data-pi');
+  const key    = funcId + ':' + pi;
+  usedMap[key] = name;
 
+  // Update card in place
+  pendingCard.classList.add('used');
+  pendingCard.removeEventListener('mousedown', startDrag);
+  const whoEl = pendingCard.querySelector('.phc-who');
+  if (whoEl) whoEl.textContent = '✓ ' + name;
+  else {
+    const d = document.createElement('div');
+    d.className = 'phc-who';
+    d.textContent = '✓ ' + name;
+    pendingCard.appendChild(d);
+  }
+  closeStu();
+}
 document.getElementById('stuName').addEventListener('keydown', e => {
   if (e.key === 'Enter')  markUsed();
   if (e.key === 'Escape') closeStu();
@@ -591,111 +681,78 @@ document.getElementById('stuName').addEventListener('keydown', e => {
 // ═══════════════════════════
 //  SOLO VIEW
 // ═══════════════════════════
+function renderSoloFuncTabs() {
+  if (!D.functions) return;
+  document.getElementById('funcTabs').innerHTML = D.functions.map((f,i) =>
+    `<button class="ftab${i===soloFuncIdx?' on':''}" data-fn="${f.id}" onclick="soloSetFunc(${i})">${f.label}</button>`
+  ).join('');
+}
 
-// Deal 3 phrases from current function (or across all if not enough)
 function dealSoloTriple() {
   soloPickedIdx = null;
   const fn = D.functions[soloFuncIdx];
   const phrases = fn.phrases;
-  // Shuffle a copy and take 3 (or fewer)
   const shuffled = [...phrases.keys()].sort(() => Math.random() - .5).slice(0, 3);
   soloTriple = shuffled.map(pi => ({ phraseIdx: pi, phrase: phrases[pi] }));
 }
 
-function renderSolo() {
-  const v = document.getElementById('soloView');
-  const p = D.prompts[promptIdx];
+function renderSoloContent() {
   const fn = D.functions[soloFuncIdx];
 
-  const tabs = D.functions.map((f,i) =>
-    `<button class="ftab${i===soloFuncIdx?' on':''}" onclick="soloSetFunc(${i})">${f.label}</button>`
-  ).join('');
+  // Tabs
+  renderSoloFuncTabs();
 
-  // Build choice cards
+  // Choices
   const choices = soloTriple.map((t, ci) => {
     const picked = soloPickedIdx === ci;
-    return `<div class="choice-card${picked?' picked':''}" onclick="pickChoice(${ci})">
+    return `<div class="choice-card${picked?' picked':''}" data-fn="${fn.id}" onclick="pickChoice(${ci})">
       <div class="cc-num">OPTION ${ci+1}</div>
       <div class="cc-stem">${t.phrase.stem}</div>
       <div class="cc-conn">${t.phrase.connector}</div>
     </div>`;
   }).join('');
+  document.getElementById('choiceRow').innerHTML = choices;
 
-  // Expanded box (shown only after pick)
-  let expHtml = '';
+  // Expanded
+  const box = document.getElementById('expandedBox');
   if (soloPickedIdx !== null) {
-    const t = soloTriple[soloPickedIdx];
-    const ph = t.phrase;
+    const ph = soloTriple[soloPickedIdx].phrase;
     const ex = ph.expanded;
-    expHtml = `
-      <div id="expandedBox" class="show">
-        <div class="exp-header">
-          <div>
-            <div class="exp-stem">${ph.stem}</div>
-            <div class="exp-conn">${ph.connector}</div>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-row">
-            <div class="exp-label">Point</div>
-            <div class="exp-text highlight">${ex.point}</div>
-          </div>
-          <div class="exp-row">
-            <div class="exp-label">Reason</div>
-            <div class="exp-text">${ex.reason}</div>
-          </div>
-          <div class="exp-row">
-            <div class="exp-label">Example</div>
-            <div class="exp-text">${ex.example}</div>
-          </div>
-          <div class="exp-row">
-            <div class="exp-label">Contrast</div>
-            <div class="exp-text">${ex.contrast}</div>
-          </div>
-          <div class="exp-row">
-            <div class="exp-label">Conclusion</div>
-            <div class="exp-text">${ex.conclusion}</div>
-          </div>
-        </div>
-        <button class="exp-next" onclick="nextSoloRound()">Next 3 phrases →</button>
-      </div>`;
+    box.className = 'show';
+    box.innerHTML = `
+      <div class="exp-header">
+        <div class="exp-stem">${ph.stem}</div>
+        <div class="exp-conn">${ph.connector}</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-row"><div class="exp-label">Point</div><div class="exp-text highlight">${ex.point}</div></div>
+        <div class="exp-row"><div class="exp-label">Reason</div><div class="exp-text">${ex.reason}</div></div>
+        <div class="exp-row"><div class="exp-label">Example</div><div class="exp-text">${ex.example}</div></div>
+        <div class="exp-row"><div class="exp-label">Contrast</div><div class="exp-text">${ex.contrast}</div></div>
+        <div class="exp-row"><div class="exp-label">Conclusion</div><div class="exp-text">${ex.conclusion}</div></div>
+      </div>
+      <button class="exp-next" onclick="nextSoloRound()">Next 3 phrases →</button>`;
+    setTimeout(() => box.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
   } else {
-    expHtml = `<div id="expandedBox"></div>`;
-  }
-
-  v.innerHTML = `
-    <div class="solo-prompt">
-      <span class="sop-em">${p.emoji}</span>
-      <div class="sop-q">${p.text}</div>
-    </div>
-    <div class="func-tabs">${tabs}</div>
-    <div id="choiceRow">${choices}</div>
-    ${expHtml}`;
-
-  if (soloPickedIdx !== null) {
-    setTimeout(() => {
-      const box = document.getElementById('expandedBox');
-      if (box) box.scrollIntoView({ behavior:'smooth', block:'nearest' });
-    }, 100);
+    box.className = '';
+    box.innerHTML = '';
   }
 }
 
 function pickChoice(ci) {
-  if (soloPickedIdx !== null) return; // already picked
+  if (soloPickedIdx !== null) return;
   soloPickedIdx = ci;
-  renderSolo();
+  renderSoloContent();
 }
-
 function nextSoloRound() {
   dealSoloTriple();
-  renderSolo();
+  renderSoloContent();
   document.getElementById('soloView').scrollTo({ top:0, behavior:'smooth' });
 }
-
 function soloSetFunc(i) {
   soloFuncIdx = i;
   dealSoloTriple();
-  renderSolo();
+  renderSoloContent();
   document.getElementById('soloView').scrollTo({ top:0, behavior:'smooth' });
 }
 
