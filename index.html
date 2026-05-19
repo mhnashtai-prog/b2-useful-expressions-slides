@@ -5,320 +5,334 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>B2 Speaking — Part 2</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --bg:      #f5f3ef;
+  --bg:      #f0ede8;
   --surface: #ffffff;
-  --border:  rgba(0,0,0,.1);
-  --border2: rgba(0,0,0,.16);
-  --text:    #111111;
-  --muted:   #555555;
-  --faint:   #999999;
-  --hh:      52px;
-  --fh:      46px;
+  --border:  rgba(0,0,0,.10);
+  --border2: rgba(0,0,0,.15);
+  --text:    #0f0f0f;
+  --muted:   #4a4a4a;
+  --faint:   #8a8a8a;
+  --hh: 56px;
+  --fh: 54px;
   --ff: 'DM Sans', sans-serif;
   --fd: 'Lora', serif;
 
-  /* Function colours — each has: bg, border, accent, label */
-  --c-spec-bg:    #eff6ff;  --c-spec-bd:  #93c5fd;  --c-spec-acc:  #1d4ed8;  --c-spec-lbl: #3b82f6;
-  --c-sim-bg:     #f0fdf4;  --c-sim-bd:   #86efac;  --c-sim-acc:   #15803d;  --c-sim-lbl:  #22c55e;
-  --c-diff-bg:    #fff7ed;  --c-diff-bd:  #fdba74;  --c-diff-acc:  #c2410c;  --c-diff-lbl: #f97316;
-  --c-adv-bg:     #faf5ff;  --c-adv-bd:   #c4b5fd;  --c-adv-acc:   #6d28d9;  --c-adv-lbl:  #8b5cf6;
-  --c-cause-bg:   #fef2f2;  --c-cause-bd: #fca5a5;  --c-cause-acc: #b91c1c;  --c-cause-lbl:#ef4444;
-  --c-prob-bg:    #ecfdf5;  --c-prob-bd:  #6ee7b7;  --c-prob-acc:  #065f46;  --c-prob-lbl: #10b981;
+  --c-advantages-bg:#eff6ff;    --c-advantages-bd:#93c5fd;    --c-advantages-acc:#1d4ed8;   --c-advantages-lbl:#2563eb;
+  --c-disadvantages-bg:#fff7ed; --c-disadvantages-bd:#fdba74; --c-disadvantages-acc:#c2410c;--c-disadvantages-lbl:#ea580c;
+  --c-problems-bg:#fef2f2;      --c-problems-bd:#fca5a5;      --c-problems-acc:#b91c1c;     --c-problems-lbl:#dc2626;
+  --c-solution-bg:#f0fdf4;      --c-solution-bd:#86efac;      --c-solution-acc:#15803d;     --c-solution-lbl:#16a34a;
+  --c-cause-bg:#fdf4ff;         --c-cause-bd:#e9d5ff;         --c-cause-acc:#7e22ce;        --c-cause-lbl:#9333ea;
+  --c-effect-bg:#fff1f2;        --c-effect-bd:#fecdd3;        --c-effect-acc:#9f1239;       --c-effect-lbl:#e11d48;
+  --c-agree-bg:#ecfdf5;         --c-agree-bd:#6ee7b7;         --c-agree-acc:#065f46;        --c-agree-lbl:#059669;
+  --c-disagree-bg:#fff1f2;      --c-disagree-bd:#fda4af;      --c-disagree-acc:#9f1239;     --c-disagree-lbl:#e11d48;
+  --c-partial-bg:#fffbeb;       --c-partial-bd:#fcd34d;       --c-partial-acc:#92400e;      --c-partial-lbl:#d97706;
+  --c-opinion-bg:#f0f9ff;       --c-opinion-bd:#7dd3fc;       --c-opinion-acc:#0c4a6e;      --c-opinion-lbl:#0284c7;
+  --c-speculation-bg:#faf5ff;   --c-speculation-bd:#c4b5fd;   --c-speculation-acc:#5b21b6;  --c-speculation-lbl:#7c3aed;
+  --c-justifying-bg:#f8fafc;    --c-justifying-bd:#cbd5e1;    --c-justifying-acc:#1e3a5f;   --c-justifying-lbl:#475569;
+  --c-comparing-bg:#fff7ed;     --c-comparing-bd:#fed7aa;     --c-comparing-acc:#7c2d12;    --c-comparing-lbl:#c2410c;
+  --c-generalising-bg:#f0fdfa;  --c-generalising-bd:#99f6e4;  --c-generalising-acc:#134e4a; --c-generalising-lbl:#0d9488;
 }
 
 html, body { width:100%; height:100%; background:var(--bg); color:var(--text); font-family:var(--ff); overflow:hidden; }
 
-/* ── LOAD ── */
-#load { position:fixed; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; z-index:9999; }
+#load { position:fixed; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; z-index:9999; }
 #load.gone { display:none; }
-.ld-title { font-family:var(--fd); font-size:22px; font-style:italic; color:var(--text); }
-.ld-sub   { font-size:11px; color:var(--faint); letter-spacing:.1em; }
-.ld-err   { font-size:13px; color:#dc2626; text-align:center; max-width:320px; line-height:1.6; }
-.spin { width:24px; height:24px; border:2px solid var(--border2); border-top-color:#3b82f6; border-radius:50%; animation:spin .7s linear infinite; }
+.ld-title { font-family:var(--fd); font-size:22px; font-style:italic; }
+.ld-sub   { font-size:11px; color:var(--faint); letter-spacing:.12em; }
+.ld-err   { font-size:13px; color:#dc2626; text-align:center; max-width:340px; line-height:1.7; }
+.spin { width:26px; height:26px; border:2px solid var(--border2); border-top-color:#2563eb; border-radius:50%; animation:spin .7s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 
-/* ── HEADER ── */
 #hdr {
   position:fixed; top:0; left:0; right:0; height:var(--hh); z-index:200;
-  background:#ffffff; border-bottom:1.5px solid var(--border2);
+  background:#fff; border-bottom:1.5px solid var(--border2);
   display:flex; align-items:center; justify-content:space-between;
-  padding:0 20px; gap:12px;
-  box-shadow:0 1px 8px rgba(0,0,0,.06);
+  padding:0 20px; gap:14px; box-shadow:0 1px 8px rgba(0,0,0,.06);
 }
-.hdr-brand { display:flex; flex-direction:column; gap:1px; min-width:0; }
-.hdr-t { font-size:13px; font-weight:700; color:var(--text); white-space:nowrap; }
-.hdr-s { font-size:9px; color:var(--faint); letter-spacing:.12em; }
+.hdr-brand { display:flex; flex-direction:column; gap:1px; }
+.hdr-t { font-size:14px; font-weight:800; color:var(--text); letter-spacing:-.01em; }
+.hdr-s { font-size:9px; color:var(--faint); letter-spacing:.14em; }
 
 .mode-pill {
-  display:flex; background:#f0f0f0;
+  display:flex; background:#f0ede8;
   border:1.5px solid var(--border2); border-radius:99px; padding:3px; gap:2px; flex-shrink:0;
 }
 .mb {
-  font-size:11px; font-weight:700; letter-spacing:.05em;
-  padding:5px 16px; border-radius:99px; border:none; cursor:pointer;
-  font-family:var(--ff); background:transparent; color:var(--faint);
-  transition:all .2s;
+  font-size:12px; font-weight:800; letter-spacing:.04em;
+  padding:6px 18px; border-radius:99px; border:none; cursor:pointer;
+  font-family:var(--ff); background:transparent; color:var(--faint); transition:all .2s;
 }
-.mb.on { background:#ffffff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.mb.on { background:#fff; color:var(--text); box-shadow:0 1px 5px rgba(0,0,0,.13); }
 
 .prompt-btn {
-  font-size:11px; font-weight:600; padding:5px 12px;
-  border-radius:7px; border:1.5px solid var(--border2);
+  font-size:12px; font-weight:700; padding:7px 14px;
+  border-radius:8px; border:1.5px solid var(--border2);
   background:transparent; color:var(--muted); cursor:pointer;
   font-family:var(--ff); transition:all .2s; white-space:nowrap; flex-shrink:0;
 }
-.prompt-btn:hover { color:var(--text); border-color:rgba(0,0,0,.3); }
+.prompt-btn:hover { color:var(--text); border-color:rgba(0,0,0,.28); background:#f8f8f8; }
 
-/* ── FUNCTION STRIP ── */
 #fstrip {
   position:fixed; top:var(--hh); left:0; right:0; height:var(--fh); z-index:190;
-  background:#ffffff; border-bottom:1.5px solid var(--border2);
-  display:flex; align-items:center; gap:6px;
-  padding:0 16px; overflow-x:auto; scrollbar-width:none;
+  background:#fff; border-bottom:1.5px solid var(--border2);
+  display:flex; align-items:center; gap:7px;
+  padding:0 18px; overflow-x:auto; scrollbar-width:none;
   box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
 #fstrip::-webkit-scrollbar { display:none; }
 
 .fb {
-  font-size:11px; font-weight:700; letter-spacing:.05em; white-space:nowrap;
-  padding:6px 16px; border-radius:99px;
-  border:1.5px solid transparent; background:transparent; color:var(--faint);
+  font-size:13px; font-weight:700; letter-spacing:.01em; white-space:nowrap;
+  padding:8px 20px; border-radius:99px;
+  border:1.5px solid var(--border2); background:#f5f5f5; color:var(--muted);
   cursor:pointer; font-family:var(--ff); transition:all .18s; flex-shrink:0;
 }
-.fb:hover { color:var(--text); }
+.fb:hover { color:var(--text); border-color:rgba(0,0,0,.25); background:#efefef; }
 
-/* colour-coded active state per function */
-.fb[data-fn="speculation"].on   { background:var(--c-spec-bg);  border-color:var(--c-spec-bd);  color:var(--c-spec-acc); }
-.fb[data-fn="similarities"].on  { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);   color:var(--c-sim-acc);  }
-.fb[data-fn="differences"].on   { background:var(--c-diff-bg);  border-color:var(--c-diff-bd);  color:var(--c-diff-acc); }
-.fb[data-fn="advantages"].on    { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);   color:var(--c-adv-acc);  }
-.fb[data-fn="cause"].on         { background:var(--c-cause-bg); border-color:var(--c-cause-bd); color:var(--c-cause-acc);}
-.fb[data-fn="problems"].on      { background:var(--c-prob-bg);  border-color:var(--c-prob-bd);  color:var(--c-prob-acc); }
+.fb[data-fn="advantages"].on    { background:var(--c-advantages-bg);    border-color:var(--c-advantages-bd);    color:var(--c-advantages-acc); }
+.fb[data-fn="disadvantages"].on { background:var(--c-disadvantages-bg); border-color:var(--c-disadvantages-bd); color:var(--c-disadvantages-acc); }
+.fb[data-fn="problems"].on      { background:var(--c-problems-bg);      border-color:var(--c-problems-bd);      color:var(--c-problems-acc); }
+.fb[data-fn="solution"].on      { background:var(--c-solution-bg);      border-color:var(--c-solution-bd);      color:var(--c-solution-acc); }
+.fb[data-fn="cause"].on         { background:var(--c-cause-bg);         border-color:var(--c-cause-bd);         color:var(--c-cause-acc); }
+.fb[data-fn="effect"].on        { background:var(--c-effect-bg);        border-color:var(--c-effect-bd);        color:var(--c-effect-acc); }
+.fb[data-fn="agree"].on         { background:var(--c-agree-bg);         border-color:var(--c-agree-bd);         color:var(--c-agree-acc); }
+.fb[data-fn="disagree"].on      { background:var(--c-disagree-bg);      border-color:var(--c-disagree-bd);      color:var(--c-disagree-acc); }
+.fb[data-fn="partial"].on       { background:var(--c-partial-bg);       border-color:var(--c-partial-bd);       color:var(--c-partial-acc); }
+.fb[data-fn="opinion"].on       { background:var(--c-opinion-bg);       border-color:var(--c-opinion-bd);       color:var(--c-opinion-acc); }
+.fb[data-fn="speculation"].on   { background:var(--c-speculation-bg);   border-color:var(--c-speculation-bd);   color:var(--c-speculation-acc); }
+.fb[data-fn="justifying"].on    { background:var(--c-justifying-bg);    border-color:var(--c-justifying-bd);    color:var(--c-justifying-acc); }
+.fb[data-fn="comparing"].on     { background:var(--c-comparing-bg);     border-color:var(--c-comparing-bd);     color:var(--c-comparing-acc); }
+.fb[data-fn="generalising"].on  { background:var(--c-generalising-bg);  border-color:var(--c-generalising-bd);  color:var(--c-generalising-acc); }
 
-/* ── APP ── */
 #app {
-  position:fixed;
-  top:calc(var(--hh) + var(--fh));
-  left:0; right:0; bottom:0;
-  overflow:hidden; /* canvas for free drag */
+  position:fixed; top:calc(var(--hh) + var(--fh)); left:0; right:0; bottom:0; overflow:hidden;
 }
 
-/* ── PROMPT CARD (draggable) ── */
+#classCanvas { width:100%; height:100%; position:relative; }
+
 #promptCard {
-  position:absolute;
-  top:24px; left:50%;
-  transform:translateX(-50%);
-  background:#ffffff;
-  border:1.5px solid var(--border2);
-  border-radius:16px;
-  padding:18px 28px;
-  text-align:center;
-  min-width:260px; max-width:480px;
-  cursor:grab;
-  box-shadow:0 2px 12px rgba(0,0,0,.08);
-  user-select:none;
-  z-index:10;
-  display:none; /* hidden until a prompt is selected */
+  position:absolute; top:24px; left:50%; transform:translateX(-50%);
+  background:#fff; border:1.5px solid var(--border2); border-radius:16px;
+  padding:16px 28px; text-align:center; min-width:280px; max-width:540px;
+  cursor:grab; box-shadow:0 2px 14px rgba(0,0,0,.08);
+  user-select:none; z-index:10; display:none;
 }
 #promptCard.show { display:block; }
 #promptCard:active { cursor:grabbing; }
-.pc-em  { font-size:28px; margin-bottom:6px; display:block; }
-.pc-txt { font-family:var(--fd); font-size:16px; font-style:italic; color:var(--muted); line-height:1.5; }
+.pc-txt { font-family:var(--fd); font-size:17px; font-style:italic; color:var(--muted); line-height:1.55; }
 
-/* ── PHRASE CARDS (free-drag) ── */
 .phrase-card {
-  position:absolute;
-  background:#ffffff;
-  border-radius:13px;
-  border:1.5px solid var(--border2);
-  padding:14px 16px 12px;
-  min-width:200px; max-width:260px;
-  cursor:grab;
-  box-shadow:0 2px 8px rgba(0,0,0,.07);
-  user-select:none;
-  transition:box-shadow .15s, transform .1s;
-  z-index:20;
+  position:absolute; border-radius:14px; border:1.5px solid var(--border2);
+  padding:14px 16px 13px; min-width:220px; max-width:275px;
+  cursor:grab; box-shadow:0 2px 8px rgba(0,0,0,.07);
+  user-select:none; z-index:20;
 }
-.phrase-card:active { cursor:grabbing; box-shadow:0 8px 28px rgba(0,0,0,.16); }
-.phrase-card.used   { opacity:.55; cursor:default; }
+.phrase-card:active { cursor:grabbing; }
+.phrase-card.used   { opacity:.5; cursor:default; }
 
-/* colour theme per function */
-.phrase-card[data-fn="speculation"]  { background:var(--c-spec-bg);  border-color:var(--c-spec-bd); }
-.phrase-card[data-fn="similarities"] { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);  }
-.phrase-card[data-fn="differences"]  { background:var(--c-diff-bg);  border-color:var(--c-diff-bd); }
-.phrase-card[data-fn="advantages"]   { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);  }
-.phrase-card[data-fn="cause"]        { background:var(--c-cause-bg); border-color:var(--c-cause-bd);}
-.phrase-card[data-fn="problems"]     { background:var(--c-prob-bg);  border-color:var(--c-prob-bd); }
+.phrase-card[data-fn="advantages"]    { background:var(--c-advantages-bg);    border-color:var(--c-advantages-bd); }
+.phrase-card[data-fn="disadvantages"] { background:var(--c-disadvantages-bg); border-color:var(--c-disadvantages-bd); }
+.phrase-card[data-fn="problems"]      { background:var(--c-problems-bg);      border-color:var(--c-problems-bd); }
+.phrase-card[data-fn="solution"]      { background:var(--c-solution-bg);      border-color:var(--c-solution-bd); }
+.phrase-card[data-fn="cause"]         { background:var(--c-cause-bg);         border-color:var(--c-cause-bd); }
+.phrase-card[data-fn="effect"]        { background:var(--c-effect-bg);        border-color:var(--c-effect-bd); }
+.phrase-card[data-fn="agree"]         { background:var(--c-agree-bg);         border-color:var(--c-agree-bd); }
+.phrase-card[data-fn="disagree"]      { background:var(--c-disagree-bg);      border-color:var(--c-disagree-bd); }
+.phrase-card[data-fn="partial"]       { background:var(--c-partial-bg);       border-color:var(--c-partial-bd); }
+.phrase-card[data-fn="opinion"]       { background:var(--c-opinion-bg);       border-color:var(--c-opinion-bd); }
+.phrase-card[data-fn="speculation"]   { background:var(--c-speculation-bg);   border-color:var(--c-speculation-bd); }
+.phrase-card[data-fn="justifying"]    { background:var(--c-justifying-bg);    border-color:var(--c-justifying-bd); }
+.phrase-card[data-fn="comparing"]     { background:var(--c-comparing-bg);     border-color:var(--c-comparing-bd); }
+.phrase-card[data-fn="generalising"]  { background:var(--c-generalising-bg);  border-color:var(--c-generalising-bd); }
 
-.phc-fn {
-  font-size:9px; font-weight:800; letter-spacing:.1em; margin-bottom:7px;
-  text-transform:uppercase;
-}
-.phrase-card[data-fn="speculation"]  .phc-fn { color:var(--c-spec-lbl);  }
-.phrase-card[data-fn="similarities"] .phc-fn { color:var(--c-sim-lbl);   }
-.phrase-card[data-fn="differences"]  .phc-fn { color:var(--c-diff-lbl);  }
-.phrase-card[data-fn="advantages"]   .phc-fn { color:var(--c-adv-lbl);   }
-.phrase-card[data-fn="cause"]        .phc-fn { color:var(--c-cause-lbl); }
-.phrase-card[data-fn="problems"]     .phc-fn { color:var(--c-prob-lbl);  }
+.phc-fn { font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
+.phrase-card[data-fn="advantages"]    .phc-fn { color:var(--c-advantages-lbl); }
+.phrase-card[data-fn="disadvantages"] .phc-fn { color:var(--c-disadvantages-lbl); }
+.phrase-card[data-fn="problems"]      .phc-fn { color:var(--c-problems-lbl); }
+.phrase-card[data-fn="solution"]      .phc-fn { color:var(--c-solution-lbl); }
+.phrase-card[data-fn="cause"]         .phc-fn { color:var(--c-cause-lbl); }
+.phrase-card[data-fn="effect"]        .phc-fn { color:var(--c-effect-lbl); }
+.phrase-card[data-fn="agree"]         .phc-fn { color:var(--c-agree-lbl); }
+.phrase-card[data-fn="disagree"]      .phc-fn { color:var(--c-disagree-lbl); }
+.phrase-card[data-fn="partial"]       .phc-fn { color:var(--c-partial-lbl); }
+.phrase-card[data-fn="opinion"]       .phc-fn { color:var(--c-opinion-lbl); }
+.phrase-card[data-fn="speculation"]   .phc-fn { color:var(--c-speculation-lbl); }
+.phrase-card[data-fn="justifying"]    .phc-fn { color:var(--c-justifying-lbl); }
+.phrase-card[data-fn="comparing"]     .phc-fn { color:var(--c-comparing-lbl); }
+.phrase-card[data-fn="generalising"]  .phc-fn { color:var(--c-generalising-lbl); }
 
-.phc-stem { font-size:16px; font-weight:700; color:var(--text); line-height:1.35; margin-bottom:5px; }
-.phc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.35; }
-.phc-who  { font-size:10px; font-weight:700; color:var(--muted); margin-top:8px; letter-spacing:.04em; }
+.phc-stem { font-size:17px; font-weight:700; color:var(--text); line-height:1.3; margin-bottom:5px; }
+.phc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.4; }
+.phc-who  { font-size:11px; font-weight:700; color:var(--muted); margin-top:9px; letter-spacing:.03em; }
 
-/* ── STUDENT PANEL ── */
 #stu {
   position:fixed; bottom:0; left:0; right:0; z-index:300;
-  background:#ffffff; border-top:1.5px solid var(--border2);
-  padding:12px 20px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-  transform:translateY(100%);
-  transition:transform .28s cubic-bezier(.22,1,.36,1);
+  background:#fff; border-top:1.5px solid var(--border2);
+  padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  transform:translateY(100%); transition:transform .28s cubic-bezier(.22,1,.36,1);
   box-shadow:0 -4px 20px rgba(0,0,0,.08);
 }
 #stu.open { transform:translateY(0); }
-.stu-lbl { font-size:10px; font-weight:700; color:var(--faint); letter-spacing:.08em; flex-shrink:0; }
+.stu-lbl { font-size:10px; font-weight:800; color:var(--faint); letter-spacing:.1em; flex-shrink:0; }
 #stuName {
   background:#f5f3ef; border:1.5px solid var(--border2);
-  border-radius:8px; padding:7px 12px; font-size:13px;
-  color:var(--text); outline:none; width:160px; font-family:var(--ff);
+  border-radius:8px; padding:8px 14px; font-size:14px;
+  color:var(--text); outline:none; width:170px; font-family:var(--ff);
 }
-#stuName:focus { border-color:#3b82f6; }
+#stuName:focus { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.1); }
 .stu-mark {
-  font-size:11px; font-weight:700; padding:8px 18px; border-radius:8px;
+  font-size:12px; font-weight:700; padding:9px 20px; border-radius:8px;
   border:1.5px solid #86efac; background:#f0fdf4; color:#15803d;
   cursor:pointer; font-family:var(--ff); transition:all .15s;
 }
 .stu-mark:hover { background:#dcfce7; }
-.stu-close {
-  margin-left:auto; font-size:18px; color:var(--faint);
-  background:none; border:none; cursor:pointer; font-family:var(--ff); line-height:1;
-}
+.stu-close { margin-left:auto; font-size:20px; line-height:1; color:var(--faint); background:none; border:none; cursor:pointer; }
 .stu-close:hover { color:var(--text); }
 
-/* ── PROMPT DROPDOWN ── */
 #pdrop {
-  position:fixed; top:calc(var(--hh) + 6px); right:20px;
-  background:#ffffff; border:1.5px solid var(--border2);
-  border-radius:14px; min-width:300px; z-index:400;
-  box-shadow:0 8px 32px rgba(0,0,0,.14); display:none; overflow:hidden;
-  max-height:calc(100vh - 80px); overflow-y:auto;
+  position:fixed; top:calc(var(--hh) + 8px); right:20px;
+  background:#fff; border:1.5px solid var(--border2);
+  border-radius:14px; min-width:360px; z-index:400;
+  box-shadow:0 10px 36px rgba(0,0,0,.14); display:none;
+  max-height:calc(100vh - 90px); overflow-y:auto;
 }
-#pdrop.show { display:block; }
+#pdrop.show { display:block; animation:dropIn .18s ease; }
+@keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
 .pd-item {
-  display:flex; align-items:center; gap:12px;
-  padding:11px 16px; cursor:pointer;
-  border-bottom:1px solid var(--border); transition:background .15s;
+  display:flex; align-items:flex-start; gap:10px;
+  padding:13px 16px; cursor:pointer;
+  border-bottom:1px solid var(--border); transition:background .12s;
 }
 .pd-item:last-child { border-bottom:none; }
 .pd-item:hover { background:#f5f3ef; }
 .pd-item.sel { background:#eff6ff; }
-.pd-em { font-size:20px; flex-shrink:0; }
-.pd-q { font-family:var(--fd); font-size:13px; font-style:italic; color:var(--muted); line-height:1.3; }
-.pd-q.sel { color:var(--text); }
+.pd-num { font-size:10px; font-weight:800; color:var(--faint); letter-spacing:.06em; padding-top:2px; flex-shrink:0; min-width:20px; }
+.pd-q { font-family:var(--fd); font-size:13px; font-style:italic; color:var(--muted); line-height:1.5; }
+.pd-item.sel .pd-q { color:var(--text); }
 
-/* ── SOLO VIEW ── */
+/* SOLO */
 #soloView {
-  width:100%; height:100%;
-  display:none; flex-direction:column; align-items:center;
+  width:100%; height:100%; display:none; flex-direction:column; align-items:center;
   overflow-y:auto; padding:24px 16px 60px;
   scrollbar-width:thin; scrollbar-color:rgba(0,0,0,.1) transparent;
 }
-
 .solo-prompt {
-  background:#ffffff; border:1.5px solid var(--border2);
-  border-radius:14px; padding:16px 24px;
-  text-align:center; max-width:700px; width:100%; margin-bottom:18px;
-  box-shadow:0 1px 6px rgba(0,0,0,.05);
+  background:#fff; border:1.5px solid var(--border2); border-radius:14px;
+  padding:18px 28px; text-align:center; max-width:700px; width:100%; margin-bottom:20px;
+  box-shadow:0 1px 8px rgba(0,0,0,.05);
 }
-.sop-em { font-size:24px; margin-bottom:5px; display:block; }
-.sop-q { font-family:var(--fd); font-size:16px; font-style:italic; color:var(--muted); line-height:1.45; }
+.sop-q { font-family:var(--fd); font-size:17px; font-style:italic; color:var(--muted); line-height:1.5; }
 
 .func-tabs {
   display:flex; gap:6px; flex-wrap:wrap; justify-content:center;
-  max-width:700px; width:100%; margin-bottom:18px;
+  max-width:700px; width:100%; margin-bottom:20px;
 }
 .ftab {
-  font-size:11px; font-weight:700; letter-spacing:.05em;
-  padding:6px 14px; border-radius:99px;
-  border:1.5px solid transparent; background:#f0f0f0; color:var(--faint);
+  font-size:12px; font-weight:700; letter-spacing:.01em;
+  padding:7px 16px; border-radius:99px;
+  border:1.5px solid var(--border2); background:#f5f5f5; color:var(--faint);
   cursor:pointer; font-family:var(--ff); transition:all .18s;
 }
-.ftab:hover { color:var(--text); }
-.ftab[data-fn="speculation"].on   { background:var(--c-spec-bg);  border-color:var(--c-spec-bd);  color:var(--c-spec-acc); }
-.ftab[data-fn="similarities"].on  { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);   color:var(--c-sim-acc);  }
-.ftab[data-fn="differences"].on   { background:var(--c-diff-bg);  border-color:var(--c-diff-bd);  color:var(--c-diff-acc); }
-.ftab[data-fn="advantages"].on    { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);   color:var(--c-adv-acc);  }
-.ftab[data-fn="cause"].on         { background:var(--c-cause-bg); border-color:var(--c-cause-bd); color:var(--c-cause-acc);}
-.ftab[data-fn="problems"].on      { background:var(--c-prob-bg);  border-color:var(--c-prob-bd);  color:var(--c-prob-acc); }
+.ftab:hover { color:var(--text); background:#efefef; }
+.ftab[data-fn="advantages"].on    { background:var(--c-advantages-bg);    border-color:var(--c-advantages-bd);    color:var(--c-advantages-acc); }
+.ftab[data-fn="disadvantages"].on { background:var(--c-disadvantages-bg); border-color:var(--c-disadvantages-bd); color:var(--c-disadvantages-acc); }
+.ftab[data-fn="problems"].on      { background:var(--c-problems-bg);      border-color:var(--c-problems-bd);      color:var(--c-problems-acc); }
+.ftab[data-fn="solution"].on      { background:var(--c-solution-bg);      border-color:var(--c-solution-bd);      color:var(--c-solution-acc); }
+.ftab[data-fn="cause"].on         { background:var(--c-cause-bg);         border-color:var(--c-cause-bd);         color:var(--c-cause-acc); }
+.ftab[data-fn="effect"].on        { background:var(--c-effect-bg);        border-color:var(--c-effect-bd);        color:var(--c-effect-acc); }
+.ftab[data-fn="agree"].on         { background:var(--c-agree-bg);         border-color:var(--c-agree-bd);         color:var(--c-agree-acc); }
+.ftab[data-fn="disagree"].on      { background:var(--c-disagree-bg);      border-color:var(--c-disagree-bd);      color:var(--c-disagree-acc); }
+.ftab[data-fn="partial"].on       { background:var(--c-partial-bg);       border-color:var(--c-partial-bd);       color:var(--c-partial-acc); }
+.ftab[data-fn="opinion"].on       { background:var(--c-opinion-bg);       border-color:var(--c-opinion-bd);       color:var(--c-opinion-acc); }
+.ftab[data-fn="speculation"].on   { background:var(--c-speculation-bg);   border-color:var(--c-speculation-bd);   color:var(--c-speculation-acc); }
+.ftab[data-fn="justifying"].on    { background:var(--c-justifying-bg);    border-color:var(--c-justifying-bd);    color:var(--c-justifying-acc); }
+.ftab[data-fn="comparing"].on     { background:var(--c-comparing-bg);     border-color:var(--c-comparing-bd);     color:var(--c-comparing-acc); }
+.ftab[data-fn="generalising"].on  { background:var(--c-generalising-bg);  border-color:var(--c-generalising-bd);  color:var(--c-generalising-acc); }
 
 #choiceRow {
   display:grid; grid-template-columns:repeat(3,1fr);
-  gap:10px; max-width:700px; width:100%; margin-bottom:18px;
+  gap:10px; max-width:700px; width:100%; margin-bottom:20px;
 }
 .choice-card {
-  border-radius:13px; padding:18px 16px 14px;
-  cursor:pointer; transition:all .18s; border:1.5px solid var(--border2);
-  display:flex; flex-direction:column; gap:6px; background:#ffffff;
+  border-radius:13px; padding:18px 16px 15px; cursor:pointer;
+  transition:all .18s; border:1.5px solid var(--border2);
+  display:flex; flex-direction:column; gap:7px;
 }
 .choice-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.1); }
-.choice-card.picked { cursor:default; transform:none; }
-.choice-card[data-fn="speculation"]  { background:var(--c-spec-bg);  border-color:var(--c-spec-bd); }
-.choice-card[data-fn="similarities"] { background:var(--c-sim-bg);   border-color:var(--c-sim-bd);  }
-.choice-card[data-fn="differences"]  { background:var(--c-diff-bg);  border-color:var(--c-diff-bd); }
-.choice-card[data-fn="advantages"]   { background:var(--c-adv-bg);   border-color:var(--c-adv-bd);  }
-.choice-card[data-fn="cause"]        { background:var(--c-cause-bg); border-color:var(--c-cause-bd);}
-.choice-card[data-fn="problems"]     { background:var(--c-prob-bg);  border-color:var(--c-prob-bd); }
-.choice-card.picked { border-width:2px; }
+.choice-card.picked { cursor:default; transform:none; border-width:2px; }
+.choice-card[data-fn="advantages"]    { background:var(--c-advantages-bg);    border-color:var(--c-advantages-bd); }
+.choice-card[data-fn="disadvantages"] { background:var(--c-disadvantages-bg); border-color:var(--c-disadvantages-bd); }
+.choice-card[data-fn="problems"]      { background:var(--c-problems-bg);      border-color:var(--c-problems-bd); }
+.choice-card[data-fn="solution"]      { background:var(--c-solution-bg);      border-color:var(--c-solution-bd); }
+.choice-card[data-fn="cause"]         { background:var(--c-cause-bg);         border-color:var(--c-cause-bd); }
+.choice-card[data-fn="effect"]        { background:var(--c-effect-bg);        border-color:var(--c-effect-bd); }
+.choice-card[data-fn="agree"]         { background:var(--c-agree-bg);         border-color:var(--c-agree-bd); }
+.choice-card[data-fn="disagree"]      { background:var(--c-disagree-bg);      border-color:var(--c-disagree-bd); }
+.choice-card[data-fn="partial"]       { background:var(--c-partial-bg);       border-color:var(--c-partial-bd); }
+.choice-card[data-fn="opinion"]       { background:var(--c-opinion-bg);       border-color:var(--c-opinion-bd); }
+.choice-card[data-fn="speculation"]   { background:var(--c-speculation-bg);   border-color:var(--c-speculation-bd); }
+.choice-card[data-fn="justifying"]    { background:var(--c-justifying-bg);    border-color:var(--c-justifying-bd); }
+.choice-card[data-fn="comparing"]     { background:var(--c-comparing-bg);     border-color:var(--c-comparing-bd); }
+.choice-card[data-fn="generalising"]  { background:var(--c-generalising-bg);  border-color:var(--c-generalising-bd); }
+
 .cc-num { font-size:9px; font-weight:800; letter-spacing:.1em; }
-.choice-card[data-fn="speculation"]  .cc-num { color:var(--c-spec-lbl);  }
-.choice-card[data-fn="similarities"] .cc-num { color:var(--c-sim-lbl);   }
-.choice-card[data-fn="differences"]  .cc-num { color:var(--c-diff-lbl);  }
-.choice-card[data-fn="advantages"]   .cc-num { color:var(--c-adv-lbl);   }
-.choice-card[data-fn="cause"]        .cc-num { color:var(--c-cause-lbl); }
-.choice-card[data-fn="problems"]     .cc-num { color:var(--c-prob-lbl);  }
-.cc-stem { font-size:15px; font-weight:700; color:var(--text); line-height:1.35; }
-.cc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.3; }
+.choice-card[data-fn="advantages"]    .cc-num { color:var(--c-advantages-lbl); }
+.choice-card[data-fn="disadvantages"] .cc-num { color:var(--c-disadvantages-lbl); }
+.choice-card[data-fn="problems"]      .cc-num { color:var(--c-problems-lbl); }
+.choice-card[data-fn="solution"]      .cc-num { color:var(--c-solution-lbl); }
+.choice-card[data-fn="cause"]         .cc-num { color:var(--c-cause-lbl); }
+.choice-card[data-fn="effect"]        .cc-num { color:var(--c-effect-lbl); }
+.choice-card[data-fn="agree"]         .cc-num { color:var(--c-agree-lbl); }
+.choice-card[data-fn="disagree"]      .cc-num { color:var(--c-disagree-lbl); }
+.choice-card[data-fn="partial"]       .cc-num { color:var(--c-partial-lbl); }
+.choice-card[data-fn="opinion"]       .cc-num { color:var(--c-opinion-lbl); }
+.choice-card[data-fn="speculation"]   .cc-num { color:var(--c-speculation-lbl); }
+.choice-card[data-fn="justifying"]    .cc-num { color:var(--c-justifying-lbl); }
+.choice-card[data-fn="comparing"]     .cc-num { color:var(--c-comparing-lbl); }
+.choice-card[data-fn="generalising"]  .cc-num { color:var(--c-generalising-lbl); }
+
+.cc-stem { font-size:15px; font-weight:700; color:var(--text); line-height:1.3; }
+.cc-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); line-height:1.35; }
 
 #expandedBox {
-  max-width:700px; width:100%; background:#ffffff;
-  border:1.5px solid var(--border2); border-radius:13px;
-  overflow:hidden; display:none; box-shadow:0 2px 12px rgba(0,0,0,.07);
+  max-width:700px; width:100%; background:#fff;
+  border:1.5px solid var(--border2); border-radius:14px;
+  overflow:hidden; display:none; box-shadow:0 3px 14px rgba(0,0,0,.08);
 }
-#expandedBox.show { display:block; animation:fadeUp .32s ease; }
+#expandedBox.show { display:block; animation:fadeUp .3s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
-.exp-header { padding:14px 20px 12px; border-bottom:1px solid var(--border); }
-.exp-stem { font-size:16px; font-weight:700; color:var(--text); }
-.exp-conn { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); }
-.exp-body { padding:16px 20px; display:flex; flex-direction:column; gap:14px; }
-.exp-row  { display:flex; flex-direction:column; gap:4px; }
-.exp-label { font-size:9px; font-weight:800; letter-spacing:.12em; color:var(--faint); text-transform:uppercase; }
-.exp-text  { font-size:14px; color:var(--muted); line-height:1.65; }
+.exp-header { padding:16px 22px 13px; border-bottom:1px solid var(--border); }
+.exp-stem   { font-size:17px; font-weight:700; color:var(--text); }
+.exp-conn   { font-size:13px; font-style:italic; font-family:var(--fd); color:var(--muted); margin-top:3px; }
+.exp-body   { padding:18px 22px; display:flex; flex-direction:column; gap:15px; }
+.exp-row    { display:flex; flex-direction:column; gap:4px; }
+.exp-label  { font-size:9px; font-weight:800; letter-spacing:.14em; color:var(--faint); text-transform:uppercase; }
+.exp-text   { font-size:14px; color:var(--muted); line-height:1.7; }
 .exp-text.highlight { color:var(--text); font-weight:600; }
 .exp-next {
-  margin:0 20px 18px; font-size:11px; font-weight:700;
-  padding:8px 20px; border-radius:8px;
+  margin:0 22px 20px; font-size:12px; font-weight:700; padding:9px 22px; border-radius:9px;
   border:1.5px solid var(--border2); background:#f5f3ef; color:var(--muted);
   cursor:pointer; font-family:var(--ff); transition:all .15s; display:inline-block;
 }
 .exp-next:hover { color:var(--text); background:#ebebeb; }
 
-/* ── HINT ── */
 #hint {
-  position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
-  font-size:11px; color:var(--faint); letter-spacing:.06em;
-  pointer-events:none; transition:opacity .4s;
+  position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+  font-size:12px; color:var(--faint); letter-spacing:.06em;
+  pointer-events:none; transition:opacity .4s; white-space:nowrap;
 }
 #hint.hidden { opacity:0; }
 
-@media(max-width:640px) {
-  :root { --hh:46px; --fh:40px; }
-  #hdr { padding:0 12px; gap:8px; }
-  .hdr-t { font-size:12px; }
-  .mb { font-size:10px; padding:4px 12px; }
+@media(max-width:700px) {
+  :root { --hh:50px; --fh:48px; }
+  #hdr { padding:0 14px; }
+  .hdr-t { font-size:13px; }
+  .fb { font-size:12px; padding:7px 15px; }
   #choiceRow { grid-template-columns:1fr; }
   .phc-stem { font-size:15px; }
 }
@@ -348,417 +362,249 @@ html, body { width:100%; height:100%; background:var(--bg); color:var(--text); f
 <div id="pdrop"></div>
 
 <div id="app">
-  <!-- Class mode: free-drag canvas -->
   <div id="classCanvas">
-    <div id="promptCard">
-      <span class="pc-em" id="pcEmoji"></span>
-      <div class="pc-txt" id="pcText"></div>
-    </div>
+    <div id="promptCard"><div class="pc-txt" id="pcText"></div></div>
   </div>
-
-  <!-- Solo mode -->
   <div id="soloView">
-    <div class="solo-prompt">
-      <span class="sop-em" id="sopEmoji"></span>
-      <div class="sop-q"   id="sopText"></div>
-    </div>
+    <div class="solo-prompt"><div class="sop-q" id="sopText">Select a prompt to begin.</div></div>
     <div class="func-tabs" id="funcTabs"></div>
     <div id="choiceRow"></div>
     <div id="expandedBox"></div>
   </div>
 </div>
 
-<div id="hint">Click a category above to reveal cards</div>
+<div id="hint">Select a category above to reveal cards</div>
 
-<!-- Student panel -->
 <div id="stu">
   <span class="stu-lbl">USED BY</span>
-  <input id="stuName" placeholder="Student name…" maxlength="24" autocomplete="off">
+  <input id="stuName" placeholder="Student name…" maxlength="28" autocomplete="off">
   <button class="stu-mark" onclick="markUsed()">Mark as used ✓</button>
   <button class="stu-close" onclick="closeStu()">✕</button>
 </div>
 
 <script>
-// ═══════════════════════════
-//  STATE
-// ═══════════════════════════
 let D = {};
-let mode       = 'class';
-let promptIdx  = -1;     // -1 = no prompt selected
-let activeFunc = null;
-let pendingCard = null;  // element being assigned
-let usedMap    = {};     // key → studentName
+let mode = 'class', promptIdx = -1, activeFunc = null, pendingCard = null, usedMap = {};
+let soloFuncIdx = 0, soloPickedIdx = null, soloTriple = [];
+let dragging = null, dragOffX = 0, dragOffY = 0, dragMoved = false, promptDrag = null;
 
-let soloFuncIdx  = 0;
-let soloPickedIdx = null;
-let soloTriple   = [];
-
-// Free-drag state
-let dragging = null;
-let dragOffX = 0, dragOffY = 0;
-
-// ═══════════════════════════
-//  LOAD
-// ═══════════════════════════
 async function load() {
   try {
     const r = await fetch('speaking-data.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     D = await r.json();
     document.getElementById('load').classList.add('gone');
-    buildAll();
+    buildPromptDrop(); buildFstrip(); renderSoloFuncTabs();
   } catch(e) {
     document.getElementById('load').innerHTML =
       `<div class="ld-err"><strong>Could not load speaking-data.json</strong><br><br>
-       Place the JSON file in the same folder and serve via a local server or GitHub Pages.<br><br>
+       Place both files in the same folder and serve via a local server or GitHub Pages.<br><br>
        <span style="opacity:.4">${e.message}</span></div>`;
   }
 }
 
-function buildAll() {
-  buildPromptDrop();
-  buildFstrip();
-  renderSoloFuncTabs();
-}
-
-// ═══════════════════════════
-//  MODE
-// ═══════════════════════════
 function setMode(m) {
   mode = m;
-  document.getElementById('btnClass').classList.toggle('on', m === 'class');
-  document.getElementById('btnSolo').classList.toggle('on',  m === 'solo');
-  document.getElementById('classCanvas').style.display = m === 'class' ? 'block' : 'none';
-  document.getElementById('soloView').style.display    = m === 'solo'  ? 'flex'  : 'none';
-  document.getElementById('fstrip').style.display      = m === 'class' ? 'flex'  : 'none';
-  document.getElementById('hint').classList.toggle('hidden', m !== 'class');
+  document.getElementById('btnClass').classList.toggle('on', m==='class');
+  document.getElementById('btnSolo').classList.toggle('on',  m==='solo');
+  document.getElementById('classCanvas').style.display = m==='class'?'block':'none';
+  document.getElementById('soloView').style.display    = m==='solo' ?'flex' :'none';
+  document.getElementById('fstrip').style.display      = m==='class'?'flex' :'none';
+  document.getElementById('hint').classList.toggle('hidden', m!=='class' || activeFunc!==null);
   closeStu();
 }
 
-// ═══════════════════════════
-//  PROMPT DROPDOWN
-// ═══════════════════════════
 function buildPromptDrop() {
   document.getElementById('pdrop').innerHTML = D.prompts.map((p,i) =>
     `<div class="pd-item${i===promptIdx?' sel':''}" onclick="selectPrompt(${i})">
-       <span class="pd-em">${p.emoji}</span>
-       <span class="pd-q${i===promptIdx?' sel':''}">${p.text}</span>
-     </div>`
-  ).join('');
+       <span class="pd-num">${i+1}.</span>
+       <span class="pd-q">${p.text}</span>
+     </div>`).join('');
 }
 
-function toggleDrop() {
-  document.getElementById('pdrop').classList.toggle('show');
-}
+function toggleDrop() { document.getElementById('pdrop').classList.toggle('show'); }
 
 function selectPrompt(i) {
-  promptIdx = i;
-  usedMap   = {};
+  promptIdx = i; usedMap = {};
   document.getElementById('pdrop').classList.remove('show');
   buildPromptDrop();
-
-  // Update prompt card
   const p = D.prompts[i];
-  document.getElementById('pcEmoji').textContent = p.emoji;
-  document.getElementById('pcText').textContent  = p.text;
-  document.getElementById('promptCard').classList.add('show');
-
-  // Update solo prompt
-  document.getElementById('sopEmoji').textContent = p.emoji;
-  document.getElementById('sopText').textContent  = p.text;
-
-  // Re-render existing category if active
+  document.getElementById('pcText').textContent = p.text;
+  const pc = document.getElementById('promptCard');
+  pc.classList.add('show');
+  pc.style.left = '50%'; pc.style.top = '24px'; pc.style.transform = 'translateX(-50%)';
+  document.getElementById('sopText').textContent = p.text;
   if (activeFunc) spawnCards(activeFunc);
-
-  soloFuncIdx   = 0;
-  soloPickedIdx = null;
-  dealSoloTriple();
-  renderSoloContent();
+  soloFuncIdx = 0; soloPickedIdx = null; dealSoloTriple(); renderSoloContent();
 }
 
 document.addEventListener('click', e => {
-  const d = document.getElementById('pdrop');
-  const b = document.getElementById('promptBtn');
+  const d = document.getElementById('pdrop'), b = document.getElementById('promptBtn');
   if (!d.contains(e.target) && e.target !== b) d.classList.remove('show');
 });
 
-// ═══════════════════════════
-//  FUNCTION STRIP (class)
-// ═══════════════════════════
 function buildFstrip() {
-  const strip = document.getElementById('fstrip');
-  strip.innerHTML = D.functions.map(f =>
+  document.getElementById('fstrip').innerHTML = D.functions.map(f =>
     `<button class="fb${activeFunc===f.id?' on':''}" data-fn="${f.id}" onclick="selectFunc('${f.id}')">${f.label}</button>`
   ).join('');
 }
 
 function selectFunc(id) {
   if (activeFunc === id) {
-    // toggle off — remove cards
-    activeFunc = null;
-    clearCards();
-    buildFstrip();
-    document.getElementById('hint').classList.remove('hidden');
-    return;
+    activeFunc = null; clearCards(); buildFstrip();
+    document.getElementById('hint').classList.remove('hidden'); return;
   }
-  activeFunc = id;
-  buildFstrip();
+  activeFunc = id; buildFstrip();
   document.getElementById('hint').classList.add('hidden');
   spawnCards(id);
 }
 
-// ═══════════════════════════
-//  CLASS CANVAS — FREE DRAG
-// ═══════════════════════════
 const canvas = document.getElementById('classCanvas');
-
-function clearCards() {
-  canvas.querySelectorAll('.phrase-card').forEach(c => c.remove());
+function clearCards() { canvas.querySelectorAll('.phrase-card').forEach(c=>c.remove()); }
+function getHH() {
+  return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
+         parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
 }
 
 function spawnCards(funcId) {
   clearCards();
-  const fn = D.functions.find(f => f.id === funcId);
-  if (!fn) return;
-
-  // Cascade from top-left with slight offsets
-  const startX = 20, startY = 20;
-  const colW   = 260, rowH = 130;
-  const cols   = Math.max(1, Math.floor((window.innerWidth - 40) / colW));
-
-  fn.phrases.forEach((ph, pi) => {
-    const col = pi % cols;
-    const row = Math.floor(pi / cols);
-    const x   = startX + col * colW;
-    const y   = startY + row * rowH;
-    const key = funcId + ':' + pi;
-    const who = usedMap[key];
-    createCard(fn, ph, pi, x, y, who);
+  const fn = D.functions.find(f=>f.id===funcId); if (!fn) return;
+  const colW=278, rowH=148, startX=18, startY=18;
+  const cols = Math.max(1, Math.floor((canvas.offsetWidth-36)/(colW+8)));
+  fn.phrases.forEach((ph,pi) => {
+    const x = startX + (pi%cols)*(colW+8);
+    const y = startY + Math.floor(pi/cols)*rowH;
+    createCard(fn, ph, pi, x, y, usedMap[funcId+':'+pi]);
   });
 }
 
 function createCard(fn, ph, pi, x, y, who) {
   const card = document.createElement('div');
-  card.className = 'phrase-card' + (who ? ' used' : '');
-  card.setAttribute('data-fn', fn.id);
-  card.setAttribute('data-pi', pi);
-  card.style.left = x + 'px';
-  card.style.top  = y + 'px';
-
-  card.innerHTML = `
-    <div class="phc-fn">${fn.label.toUpperCase()}</div>
+  card.className = 'phrase-card'+(who?' used':'');
+  card.setAttribute('data-fn', fn.id); card.setAttribute('data-pi', pi);
+  card.style.left = x+'px'; card.style.top = y+'px';
+  card.innerHTML = `<div class="phc-fn">${fn.label.toUpperCase()}</div>
     <div class="phc-stem">${ph.stem}</div>
     <div class="phc-conn">${ph.connector}</div>
-    ${who ? `<div class="phc-who">✓ ${who}</div>` : ''}`;
-
+    ${who?`<div class="phc-who">✓ ${who}</div>`:''}`;
   canvas.appendChild(card);
-
   if (!who) {
-    makeDraggable(card);
-    card.addEventListener('click', e => {
-      if (card.dataset.moved === '1') { card.dataset.moved = '0'; return; }
-      openStu(card);
+    card.addEventListener('mousedown', e => {
+      if (e.button!==0) return;
+      startCardDrag(card, e.clientX, e.clientY); e.preventDefault();
     });
+    card.addEventListener('touchstart', e => {
+      startCardDrag(card, e.touches[0].clientX, e.touches[0].clientY);
+    }, {passive:true});
+    card.addEventListener('click', () => { if (dragMoved) return; openStu(card); });
   }
 }
 
-function makeDraggable(el) {
-  el.addEventListener('mousedown', startDrag);
-  el.addEventListener('touchstart', startDragTouch, { passive:true });
-}
-
-function startDrag(e) {
-  if (e.button !== 0) return;
-  beginDrag(el => el, e.clientX, e.clientY, e.currentTarget);
-  e.preventDefault();
-}
-
-function startDragTouch(e) {
-  const t = e.touches[0];
-  beginDrag(el => el, t.clientX, t.clientY, e.currentTarget);
-}
-
-function beginDrag(_, cx, cy, el) {
-  dragging = el;
-  const rect = el.getBoundingClientRect();
-  dragOffX = cx - rect.left;
-  dragOffY = cy - rect.top;
-  el.style.zIndex = 50;
-  el.style.boxShadow = '0 12px 32px rgba(0,0,0,.18)';
-  el.dataset.moved = '0';
-  el.style.transition = 'none';
+function startCardDrag(el, cx, cy) {
+  dragging=el; dragMoved=false;
+  const rect=el.getBoundingClientRect();
+  dragOffX=cx-rect.left; dragOffY=cy-rect.top;
+  el.style.zIndex='50'; el.style.boxShadow='0 12px 36px rgba(0,0,0,.18)'; el.style.transition='none';
 }
 
 document.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  moveDrag(e.clientX, e.clientY);
+  if (dragging) { dragMoved=true; dragging.style.left=(e.clientX-dragOffX)+'px'; dragging.style.top=(e.clientY-dragOffY-getHH())+'px'; }
+  if (promptDrag) {
+    const pc=document.getElementById('promptCard');
+    pc.style.left=(e.clientX-promptDrag.offX)+'px'; pc.style.top=(e.clientY-promptDrag.offY-getHH())+'px';
+  }
 });
 document.addEventListener('touchmove', e => {
-  if (!dragging) return;
-  moveDrag(e.touches[0].clientX, e.touches[0].clientY);
-}, { passive:true });
+  if (dragging) { dragMoved=true; const t=e.touches[0]; dragging.style.left=(t.clientX-dragOffX)+'px'; dragging.style.top=(t.clientY-dragOffY-getHH())+'px'; }
+  if (promptDrag) {
+    const t=e.touches[0], pc=document.getElementById('promptCard');
+    pc.style.left=(t.clientX-promptDrag.offX)+'px'; pc.style.top=(t.clientY-promptDrag.offY-getHH())+'px';
+  }
+}, {passive:true});
+document.addEventListener('mouseup', () => {
+  if (dragging) { dragging.style.zIndex='20'; dragging.style.boxShadow=''; dragging=null; }
+  promptDrag=null;
+});
+document.addEventListener('touchend', () => {
+  if (dragging) { dragging.style.zIndex='20'; dragging.style.boxShadow=''; dragging=null; }
+  promptDrag=null;
+});
 
-function moveDrag(cx, cy) {
-  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
-                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
-  const x = cx - dragOffX;
-  const y = cy - dragOffY - appTop;
-  dragging.style.left = x + 'px';
-  dragging.style.top  = y + 'px';
-  dragging.dataset.moved = '1';
-}
-
-document.addEventListener('mouseup', endDrag);
-document.addEventListener('touchend', endDrag);
-function endDrag() {
-  if (!dragging) return;
-  dragging.style.zIndex = 20;
-  dragging.style.boxShadow = '';
-  dragging = null;
-}
-
-// Also make prompt card draggable
 const pcEl = document.getElementById('promptCard');
 pcEl.addEventListener('mousedown', e => {
-  if (e.button !== 0) return;
-  const rect = pcEl.getBoundingClientRect();
-  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
-                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
-  dragging = { isPrompt: true, offX: e.clientX - rect.left, offY: e.clientY - rect.top };
-  e.preventDefault();
+  if (e.button!==0) return;
+  const rect=pcEl.getBoundingClientRect();
+  promptDrag={offX:e.clientX-rect.left, offY:e.clientY-rect.top};
+  pcEl.style.transform='none'; e.preventDefault();
 });
-document.addEventListener('mousemove', e => {
-  if (!dragging || !dragging.isPrompt) return;
-  const appTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh')) +
-                 parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fh'));
-  const x = e.clientX - dragging.offX;
-  const y = e.clientY - dragging.offY - appTop;
-  pcEl.style.left      = x + 'px';
-  pcEl.style.top       = y + 'px';
-  pcEl.style.transform = 'none';
-});
-document.addEventListener('mouseup', () => {
-  if (dragging && dragging.isPrompt) dragging = null;
-});
+pcEl.addEventListener('touchstart', e => {
+  const rect=pcEl.getBoundingClientRect();
+  promptDrag={offX:e.touches[0].clientX-rect.left, offY:e.touches[0].clientY-rect.top};
+  pcEl.style.transform='none';
+}, {passive:true});
 
-// ── STUDENT PANEL ──
-function openStu(cardEl) {
-  pendingCard = cardEl;
-  document.getElementById('stuName').value = '';
+function openStu(el) {
+  pendingCard=el; document.getElementById('stuName').value='';
   document.getElementById('stu').classList.add('open');
-  setTimeout(() => document.getElementById('stuName').focus(), 180);
+  setTimeout(()=>document.getElementById('stuName').focus(),180);
 }
-function closeStu() {
-  pendingCard = null;
-  document.getElementById('stu').classList.remove('open');
-}
+function closeStu() { pendingCard=null; document.getElementById('stu').classList.remove('open'); }
 function markUsed() {
   if (!pendingCard) return;
-  const name   = document.getElementById('stuName').value.trim() || 'Student';
-  const funcId = pendingCard.getAttribute('data-fn');
-  const pi     = +pendingCard.getAttribute('data-pi');
-  const key    = funcId + ':' + pi;
-  usedMap[key] = name;
-
-  // Update card in place
-  pendingCard.classList.add('used');
-  pendingCard.removeEventListener('mousedown', startDrag);
-  const whoEl = pendingCard.querySelector('.phc-who');
-  if (whoEl) whoEl.textContent = '✓ ' + name;
-  else {
-    const d = document.createElement('div');
-    d.className = 'phc-who';
-    d.textContent = '✓ ' + name;
-    pendingCard.appendChild(d);
-  }
+  const name=document.getElementById('stuName').value.trim()||'Student';
+  const fn=pendingCard.getAttribute('data-fn'), pi=+pendingCard.getAttribute('data-pi');
+  usedMap[fn+':'+pi]=name;
+  pendingCard.classList.add('used'); pendingCard.style.cursor='default';
+  const w=pendingCard.querySelector('.phc-who');
+  if (w) w.textContent='✓ '+name;
+  else { const d=document.createElement('div'); d.className='phc-who'; d.textContent='✓ '+name; pendingCard.appendChild(d); }
   closeStu();
 }
 document.getElementById('stuName').addEventListener('keydown', e => {
-  if (e.key === 'Enter')  markUsed();
-  if (e.key === 'Escape') closeStu();
+  if (e.key==='Enter') markUsed(); if (e.key==='Escape') closeStu();
 });
 
-// ═══════════════════════════
-//  SOLO VIEW
-// ═══════════════════════════
 function renderSoloFuncTabs() {
   if (!D.functions) return;
   document.getElementById('funcTabs').innerHTML = D.functions.map((f,i) =>
     `<button class="ftab${i===soloFuncIdx?' on':''}" data-fn="${f.id}" onclick="soloSetFunc(${i})">${f.label}</button>`
   ).join('');
 }
-
 function dealSoloTriple() {
-  soloPickedIdx = null;
-  const fn = D.functions[soloFuncIdx];
-  const phrases = fn.phrases;
-  const shuffled = [...phrases.keys()].sort(() => Math.random() - .5).slice(0, 3);
-  soloTriple = shuffled.map(pi => ({ phraseIdx: pi, phrase: phrases[pi] }));
+  soloPickedIdx=null;
+  const phrases=D.functions[soloFuncIdx].phrases;
+  soloTriple=[...phrases.keys()].sort(()=>Math.random()-.5).slice(0,3).map(pi=>({phraseIdx:pi,phrase:phrases[pi]}));
 }
-
 function renderSoloContent() {
-  const fn = D.functions[soloFuncIdx];
-
-  // Tabs
+  const fn=D.functions[soloFuncIdx];
   renderSoloFuncTabs();
-
-  // Choices
-  const choices = soloTriple.map((t, ci) => {
-    const picked = soloPickedIdx === ci;
-    return `<div class="choice-card${picked?' picked':''}" data-fn="${fn.id}" onclick="pickChoice(${ci})">
-      <div class="cc-num">OPTION ${ci+1}</div>
-      <div class="cc-stem">${t.phrase.stem}</div>
-      <div class="cc-conn">${t.phrase.connector}</div>
-    </div>`;
-  }).join('');
-  document.getElementById('choiceRow').innerHTML = choices;
-
-  // Expanded
-  const box = document.getElementById('expandedBox');
-  if (soloPickedIdx !== null) {
-    const ph = soloTriple[soloPickedIdx].phrase;
-    const ex = ph.expanded;
-    box.className = 'show';
-    box.innerHTML = `
-      <div class="exp-header">
-        <div class="exp-stem">${ph.stem}</div>
-        <div class="exp-conn">${ph.connector}</div>
-      </div>
+  document.getElementById('choiceRow').innerHTML = soloTriple.map((t,ci) =>
+    `<div class="choice-card${soloPickedIdx===ci?' picked':''}" data-fn="${fn.id}" onclick="pickChoice(${ci})">
+       <div class="cc-num">OPTION ${ci+1}</div>
+       <div class="cc-stem">${t.phrase.stem}</div>
+       <div class="cc-conn">${t.phrase.connector}</div>
+     </div>`).join('');
+  const box=document.getElementById('expandedBox');
+  if (soloPickedIdx!==null) {
+    const ph=soloTriple[soloPickedIdx].phrase;
+    const ex=ph.expanded||fn.expanded||{};
+    box.className='show';
+    box.innerHTML=`<div class="exp-header"><div class="exp-stem">${ph.stem}</div><div class="exp-conn">${ph.connector}</div></div>
       <div class="exp-body">
-        <div class="exp-row"><div class="exp-label">Point</div><div class="exp-text highlight">${ex.point}</div></div>
-        <div class="exp-row"><div class="exp-label">Reason</div><div class="exp-text">${ex.reason}</div></div>
-        <div class="exp-row"><div class="exp-label">Example</div><div class="exp-text">${ex.example}</div></div>
-        <div class="exp-row"><div class="exp-label">Contrast</div><div class="exp-text">${ex.contrast}</div></div>
-        <div class="exp-row"><div class="exp-label">Conclusion</div><div class="exp-text">${ex.conclusion}</div></div>
+        <div class="exp-row"><div class="exp-label">Point</div><div class="exp-text highlight">${ex.point||''}</div></div>
+        <div class="exp-row"><div class="exp-label">Reason</div><div class="exp-text">${ex.reason||''}</div></div>
+        <div class="exp-row"><div class="exp-label">Example</div><div class="exp-text">${ex.example||''}</div></div>
+        <div class="exp-row"><div class="exp-label">Contrast</div><div class="exp-text">${ex.contrast||''}</div></div>
+        <div class="exp-row"><div class="exp-label">Conclusion</div><div class="exp-text">${ex.conclusion||''}</div></div>
       </div>
       <button class="exp-next" onclick="nextSoloRound()">Next 3 phrases →</button>`;
-    setTimeout(() => box.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
-  } else {
-    box.className = '';
-    box.innerHTML = '';
-  }
+    setTimeout(()=>box.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  } else { box.className=''; box.innerHTML=''; }
 }
+function pickChoice(ci) { if (soloPickedIdx!==null) return; soloPickedIdx=ci; renderSoloContent(); }
+function nextSoloRound() { dealSoloTriple(); renderSoloContent(); document.getElementById('soloView').scrollTo({top:0,behavior:'smooth'}); }
+function soloSetFunc(i) { soloFuncIdx=i; dealSoloTriple(); renderSoloContent(); document.getElementById('soloView').scrollTo({top:0,behavior:'smooth'}); }
 
-function pickChoice(ci) {
-  if (soloPickedIdx !== null) return;
-  soloPickedIdx = ci;
-  renderSoloContent();
-}
-function nextSoloRound() {
-  dealSoloTriple();
-  renderSoloContent();
-  document.getElementById('soloView').scrollTo({ top:0, behavior:'smooth' });
-}
-function soloSetFunc(i) {
-  soloFuncIdx = i;
-  dealSoloTriple();
-  renderSoloContent();
-  document.getElementById('soloView').scrollTo({ top:0, behavior:'smooth' });
-}
-
-// ═══════════════════════════
-//  INIT
-// ═══════════════════════════
 setMode('class');
 load();
 </script>
